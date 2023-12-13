@@ -243,7 +243,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const token = getItem('user')
   if (to.meta.title) {
-    document.title = `${to.meta.title}-ADK-blog 我的个人小站`
+    document.title = `${to.meta.title}`
   }
   if (to.meta.requireAuth) {
     if (token) {

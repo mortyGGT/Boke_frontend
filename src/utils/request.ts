@@ -32,12 +32,12 @@ request.interceptors.response.use(
     if (response.status > 400) {
       ElMessage.error(response.statusText)
       throw new Error(`请求失败`)
-    } else if (response.data.code === 10003) {
+    } else if (response.data.status === 10003) {
       const store = useStore()
       if (store.user.token) {
         store.setUserToken('')
       }
-    } else if (response.data.code !== 200) {
+    } else if (response.data.status !== 200) {
       if (response.data.msg) {
         ElMessage.error(response.data.msg)
       }

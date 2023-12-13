@@ -1,14 +1,14 @@
 <template>
-  <router-link class="box" :to="`/article/${articleItem.id}`">
+  <router-link class="box" :to="`/article/${articleItem.ID}`">
     <figure class="image">
-      <MyElimage :img="articleItem.banner" :zip="2" />
+      <MyElimage :img="articleItem.imageUrl" :zip="2" />
     </figure>
     <article class="content">
       <section class="up">
         <div class="left">
-          <title class="title">{{ articleItem.articleName }}</title>
+          <title class="title">{{ articleItem.title }}</title>
           <summary class="desc">
-            {{ articleItem.summary }}
+            {{ articleItem.desc }}
           </summary>
         </div>
         <time class="right tw-flex-shrink-0">
@@ -19,9 +19,9 @@
         <div class="leftcontent">
           <div class="tw-flex tw-items-center">
             <div class="tw-w-8 tw-h-8 tw-rounded-full tw-overflow-hidden tw-mr-2">
-              <MyElimage :img="articleItem.authorVo.avatar" :zip="1" />
+              <!-- <MyElimage :img="articleItem.authorVo.avatar" :zip="1" /> -->
             </div>
-            <p class="author">{{ articleItem.authorVo.nickname }}</p>
+            <!-- <p class="author">{{ articleItem.authorVo.nickname }}</p> -->
           </div>
           <div>
             <TagItem
@@ -37,10 +37,10 @@
             <div>
               <ElTag effect="dark">{{ ArticlePannel[articleItem.pannel] }}</ElTag>
             </div>
-            <i class="iconfont icon-yanjing">{{ articleItem.viewCounts }}</i>
-            <i class="iconfont icon-pinglun">{{ articleItem.commentCounts }}</i>
-            <i class="iconfont icon-good">{{ articleItem.likeCounts }}</i>
-            <i class="iconfont icon-changyonggongneng">{{ articleItem.collectCounts }}</i>
+            <i class="iconfont icon-yanjing">{{ articleItem.readCount }}</i>
+            <i class="iconfont icon-pinglun">{{ articleItem.commentCount }}</i>
+            <i class="iconfont icon-good">{{ articleItem.likeCount }}</i>
+            <i class="iconfont icon-changyonggongneng">{{ articleItem.collectCount }}</i>
           </div>
         </div>
       </section>
@@ -62,7 +62,7 @@ const props = defineProps({
 })
 
 const time = computed(() => {
-  return getRealativeTime(props.articleItem.createDate)
+  return getRealativeTime(props.articleItem.CreatedAt)
 })
 </script>
 <style lang="less" scoped>

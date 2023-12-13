@@ -18,23 +18,22 @@ declare global {
     text: string | undefined
   }
   interface ArticleItemInfo {
-    articleName: string
-    author: string
-    authorVo: UserEasy
-    banner: string
-    body?: ArticleBody
-    commentCounts: number
-    createDate: string
-    id: string
-    summary: string
-    tags: Array<Tag>
-    viewCounts: number
-    isLiked: boolean
-    isCollected: boolean
-    likeCounts: number
-    collectCounts: number
-    isPrivate: number
-    pannel: number
+    title: string
+    author?: string
+    imageUrl: string
+    authorVo?: UserEasy
+    body?: ArtiStringDecoder
+    CreatedAt: string
+    ID: number
+    desc: string
+    tags?: Array<Tag>
+    isLiked?: boolean
+    isCollected?: boolean
+    collectCount?: number
+    likeCount: number
+    readCount: number
+    commentCount: number
+    pannel?: number
   }
 
   interface Banner {

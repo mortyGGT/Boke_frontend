@@ -123,8 +123,8 @@ export const addTag = (tagName: string) => {
  */
 export const getIndexArticleApi = (pageparams: PageParams) => {
   return request({
-    method: 'post',
-    url: '/api/articles/indexarticle',
+    method: 'get',
+    url: '/api/article/hot',
     data: pageparams
   })
 }

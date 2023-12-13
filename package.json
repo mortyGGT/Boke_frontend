@@ -20,6 +20,7 @@
     "amfe-flexible": "^2.2.1",
     "axios": "^0.25.0",
     "bangumi-data": "^0.3.86",
+    "caniuse-lite": "^1.0.30001570",
     "dayjs": "^1.10.7",
     "dplayer": "^1.26.0",
     "echarts": "^5.3.1",

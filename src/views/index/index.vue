@@ -3,17 +3,17 @@
     <div class="tw-h-24 ghost"></div>
     <SubTitle>
       最近更新
-      <template #right> welcome to Adkblog </template>
+      <template #right> welcome to 往生堂 </template>
     </SubTitle>
     <Carousel :items="bannerList" />
     <FollowBangumiCard
       v-if="userInfo.user.token && userInfo.followBangumiCard"
       @hide="hideFollowBgmCard"
     />
-    <SubTitle> 看看新番 </SubTitle>
+    <!-- <SubTitle> 看看新番 </SubTitle>
     <section class="bangumi">
       <Bangumimini />
-    </section>
+    </section> -->
     <SubTitle> 我的文章 </SubTitle>
     <section class="view-content">
       <aside class="article">
@@ -40,7 +40,7 @@
           </template>
           <ArticleItem
             v-for="articleItem in articles"
-            :key="articleItem.id"
+            :key="articleItem.ID"
             :articleItem="articleItem"
           />
           <AdkEmpty v-if="articles.length === 0" desc="暂时没有文章发表哦~"></AdkEmpty>
@@ -48,13 +48,13 @@
       </aside>
       <ul class="rightbox" ref="rightUl">
         <li>
-          <ArticleTimeLine />
+          <!-- <ArticleTimeLine /> -->
         </li>
         <li>
-          <TagsAll />
+          <!-- <TagsAll /> -->
         </li>
         <li>
-          <TimeLine />
+          <!-- <TimeLine /> -->
         </li>
       </ul>
     </section>
@@ -97,7 +97,7 @@ const hideFollowBgmCard = () => {
 // 拖拽
 onMounted(() => {
   getIndexfive()
-  getBannerList()
+  // getBannerList()
 })
 </script>
 
