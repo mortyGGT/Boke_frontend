@@ -15,9 +15,9 @@ declare global {
     isOrigin?: number
   }
   interface CommentParams {
-    articleId: string
+    articleId: string | number
     toUid?: string
-    parentId?: string
+    parentId?: string | number
     content: string
     authorId: string
   }

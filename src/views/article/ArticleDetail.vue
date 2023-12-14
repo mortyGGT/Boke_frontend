@@ -3,7 +3,7 @@
     <div class="filter"></div>
     <TopNavBar />
     <figure class="banner" v-if="article">
-      <MyElimage :img="article.banner" :zip="4" />
+      <MyElimage :img="article.imageUrl" :zip="4" />
     </figure>
     <main class="main">
       <article class="article">
@@ -22,7 +22,7 @@
           <div class="article-container" ref="articleContainer">
             <ArticleSummary :article="article" />
             <!-- 主体部分 -->
-            <ArticleBody :html="article.body.html" />
+            <ArticleBody :html="article.content" />
             <!-- 结束部分 显示查看数 点赞数 以及评论数 -->
             <ElDivider />
           </div>
@@ -79,9 +79,9 @@
                   v-for="(commentitem, i) in commentList"
                   :commentInfo="commentitem"
                   :floor="i + 1"
-                  :key="commentitem.id"
-                  :authorId="article.authorVo.id"
-                  :articleId="article.id"
+                  :key="commentitem.ID"
+                  :authorId="article.authorVo?.id"
+                  :articleId="article.ID"
                   @published="publishSecond"
                 />
               </transition-group>

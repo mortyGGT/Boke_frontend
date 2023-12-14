@@ -14,7 +14,7 @@
           <div class="username-time">
             <h3>
               {{ commentInfo.user?.nickname || commentInfo.nickname }}
-              <div class="tag" v-if="commentInfo.user && commentInfo.user.id === authorId">
+              <div class="tag" v-if="commentInfo.user && commentInfo?.user.id === authorId">
                 博主
               </div>
               <!-- 占位 以后接入等级系统可用 -->
@@ -28,7 +28,7 @@
         <div class="tw-flex tw-flex-col tw-items-end tw-justify-between" style="height: 60px">
           <div class="floor tw-flex-1">{{ floor }}楼</div>
 
-          <span>{{ commentInfo.createDate }}</span>
+          <span>{{ commentInfo.CreatedAt }}</span>
         </div>
       </div>
       <ElDivider />
@@ -48,11 +48,11 @@
         <div v-if="commentInfo.childrens">
           <SecondComment
             v-for="item in commentInfo.childrens"
-            :key="item.id"
+            :key="item.ID"
             :authorId="authorId"
             :childrenItem="item"
-            :parentUserId="commentInfo.user.id"
-            :parentId="commentInfo.id"
+            :parentUserId="commentInfo.user?.id"
+            :parentId="commentInfo.ID"
             :articleId="articleId"
             @published="published"
           />
@@ -75,12 +75,8 @@ defineProps({
     type: Number,
     default: 1
   },
-  authorId: {
-    type: String,
-    default: ''
-  },
   articleId: {
-    type: String,
+    type: Number || String,
     default: '1'
   },
   reply: {
@@ -92,6 +88,7 @@ defineProps({
     default: true
   }
 })
+const authorId = '2'
 const emit = defineEmits(['published'])
 const published = () => {
   emit('published')

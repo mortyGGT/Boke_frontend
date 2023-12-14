@@ -32,7 +32,7 @@ export const useArticle = () => {
   const time = computed(() => {
     article.value as ArticleItemInfo
     if (article.value) {
-      return getRealativeTime(article.value.createDate)
+      return getRealativeTime(article.value.CreatedAt)
     }
   })
   // 滚动
@@ -57,17 +57,17 @@ export const useArticle = () => {
   // 获取文章
   const getArticle = async (id: any) => {
     const { data } = await getArticleItem(id)
-    if (data.code === 200) {
+    if (data.status === 200) {
       article.value = data.data
     } else {
-      ElMessage.error(data.msg)
+      ElMessage.error(data.message)
     }
   }
   // 获取评论
   const getAllComment = async () => {
     const { data } = await getComments(route.params.id as string, pageparams)
-    commentList.value = data.data.results
-    totalComment.value = data.data.length
+    commentList.value = data.data ? data.data : []
+    totalComment.value = data ? data.total : 0
     commentList.value.map(item => {
       item.content = decodeEmoji(item.content)
       if (item.childrens) {
@@ -77,6 +77,7 @@ export const useArticle = () => {
       }
       return item
     })
+    return commentList
   }
   const goTop = () => {
     console.log(body.value?.scrollTop)
@@ -94,7 +95,7 @@ export const useArticle = () => {
       const likedValue = !article.value?.isLiked
       if (article.value) {
         const reqParams: LikeOrCollectParams = {
-          articleId: article.value.id,
+          articleId: article.value.ID,
           flag: likedValue
         }
         await userLike(reqParams)

@@ -22,6 +22,7 @@ declare global {
     author?: string
     imageUrl: string
     authorVo?: UserEasy
+    content: string
     body?: ArtiStringDecoder
     CreatedAt: string
     ID: number

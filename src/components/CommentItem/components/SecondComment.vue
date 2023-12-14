@@ -8,7 +8,7 @@
         <div class="username-time">
           <h3>
             {{ childrenItem.user.nickname }}
-            <div class="tag" v-if="childrenItem.user.id === authorId">博主</div>
+            <div class="tag" v-if="childrenItem?.user.id === authorId">博主</div>
             <!-- 占位 以后接入等级系统可用 -->
             <div class="tag tag2">Lv1</div>
           </h3>
@@ -16,7 +16,7 @@
         <p>{{ childrenItem.createDate }}</p>
       </div>
       <p class="content tw-flex-1">
-        <span v-if="childrenItem.toUser.id !== parentUserId"
+        <span v-if="childrenItem?.toUser.id !== parentUserId"
           >回复给<span class="tw-text-blue-500 tw-font-extrabold"
             >@{{ childrenItem.toUser.nickname }} ：</span
           ></span
@@ -32,6 +32,7 @@
   />
 </template>
 <script setup lang="ts">
+import { number } from 'echarts'
 import { PropType } from 'vue'
 defineProps({
   childrenItem: {
@@ -44,7 +45,7 @@ defineProps({
    * 一级评论的评论id
    */
   parentId: {
-    type: String,
+    type: String || Number,
     default: ''
   },
   /**
@@ -65,7 +66,7 @@ defineProps({
    * 文章id 用于二级评论中
    */
   articleId: {
-    type: String,
+    type: String || Number,
     default: ''
   }
 })

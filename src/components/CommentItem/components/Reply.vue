@@ -38,14 +38,14 @@ const props = defineProps({
     }
   },
   articleId: {
-    type: String,
+    type: String || Number,
     default: '1'
   },
   /**
    * 父级评论id 非必须
    */
   parentId: {
-    type: String,
+    type: String || Number,
     default: ''
   }
 })
@@ -55,8 +55,8 @@ const userStrore = useUserStore()
 let relpycontentShow = ref(false)
 const reqCommentParams = reactive<CommentParams>({
   articleId: props.articleId,
-  toUid: props.commentInfo.user.id,
-  parentId: props.parentId !== '' ? props.parentId : props.commentInfo.id,
+  toUid: props.commentInfo.user?.id,
+  parentId: props.parentId !== '' ? props.parentId : props.commentInfo.ID,
   authorId: userStrore.userinfo.id,
   content: ''
 })

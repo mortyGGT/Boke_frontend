@@ -76,8 +76,8 @@ export const uploadImageToLocal = (imgFile: any, cb?: any) => {
  */
 export const getArticleItem = (id: number | string) => {
   return request({
-    method: 'post',
-    url: `/api/articles/article/${id}`
+    method: 'get',
+    url: `/api/article/info/${id}`
   })
 }
 /**
