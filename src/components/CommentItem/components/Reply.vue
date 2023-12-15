@@ -25,6 +25,7 @@
 import { addComment } from '@/api/comment'
 import { useEmoji } from '@/hooks/useEmoji'
 import { useUserStore } from '@/store/user'
+import { useStore } from '@/store/main'
 import { encodeEmoji } from '@/utils/emoji'
 import { ElMessage } from 'element-plus'
 import { PropType } from 'vue'
@@ -64,6 +65,13 @@ const publishSubComment = async () => {
   if (userStrore.userinfo.id) {
     if (reqCommentParams.content != '') {
       reqCommentParams.content = encodeEmoji(reqCommentParams.content)
+      const user = useStore()
+      // let parmas = {
+      //   article_id: parseInt(this.id),
+      //   content: reqCommentParams.content,
+      //   user_id: user.user.userId,
+      //   username: user.user.username
+      // }
       await addComment(reqCommentParams)
       emit('published')
       reqCommentParams.content = ''

@@ -58,9 +58,11 @@ export const useLoginMethod = (userStore: any, router: any, form: any) => {
         const loginParams = { username: form.username, password: form.password }
         const result = await userLogin(loginParams)
         console.log(result)
-        if (result.data.code === 200) {
-          userStore.user.token = result.data.data
-          setItem('user', userStore.user.token)
+        if (result.data.status === 200) {
+          const store = useStore()
+          store.setUserToken(result.data.data.token)
+          store.setUserId(result.data.data.userId)
+          store.setUsername(result.data.data.username)
           router.push('/index')
         } else {
           //   登录失败 提示msg
@@ -115,13 +117,15 @@ export const useRegisterMethod = (userStore: any, router: any, registerForm: any
           nickname: registerForm.nickname
         }
         const result = await userRegister(registerParams)
-        if (result.data.code === 200) {
-          userStore.user.token = result.data.data
-          setItem('user', userStore.user.token)
+        if (result.data.status === 200) {
+          const store = useStore()
+          store.setUserToken(result.data.data.token)
+          store.setUserId(result.data.data.userId)
+          store.setUsername(result.data.data.username)
           router.push('/index')
         } else {
           //   注册失败 提示msg
-          ElMessage.error(result.data.msg)
+          ElMessage.error(result.data.message)
         }
       } else {
         ElMessage.error('请校验表单！')

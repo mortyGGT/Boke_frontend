@@ -58,7 +58,7 @@ const user = store.user
 const getUserInfo = () => {
   if (user && user.token) {
     // 获取信息
-    currentUserApi()
+    currentUserApi(user.userId)
       .then((result: any) => {
         const { data } = result
         if (data.code === 10003) {

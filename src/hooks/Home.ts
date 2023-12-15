@@ -2,6 +2,8 @@ import { currentUserAll, currentUserApi, updateUserInfoApi } from '@/api/user'
 import { useUserStore } from '@/store/user'
 import { ElMessage, ElForm } from 'element-plus'
 import { validateEmail, validateJianjie, validateNickname } from '@/utils/validate'
+import { useStore } from '@/store/main'
+
 const userStore = useUserStore()
 
 export const useHomeIndex = () => {
@@ -52,7 +54,9 @@ export const useHomeIndex = () => {
   const changeInfo = async () => {
     await updateUserInfo()
     await getAllinfo()
-    const { data } = await currentUserApi()
+    const userstore = useStore()
+    const id = userstore.user.userId
+    const { data } = await currentUserApi(id)
     userStore.setUser(data.data)
   }
 

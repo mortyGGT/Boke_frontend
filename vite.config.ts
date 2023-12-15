@@ -78,8 +78,8 @@ export default ({ mode }) => {
       proxy: {
         '/api': {
           target: 'http://localhost:3000',
-          changeOrigin: true
-          // rewrite: path => path.replace(/^\/api/, '')
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, '/api/v1')
         },
         '/bgmtv': {
           target: 'https://bgm.tv',

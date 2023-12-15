@@ -1,10 +1,10 @@
 import request from '@/utils/request'
 
 // 获取当前user信息
-export const currentUserApi = () => {
+export const currentUserApi = (id: string) => {
   return request({
     method: 'get',
-    url: '/api/user/currentUser'
+    url: `/api/user/currentUser?id=${id}`
   })
 }
 
