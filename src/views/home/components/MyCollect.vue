@@ -29,6 +29,6 @@ const deleteCollectFn = async (id: string) => {
 }
 
 onMounted(() => {
-  getMyCollect()
+  // getMyCollect()
 })
 </script>

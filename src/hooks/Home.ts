@@ -30,15 +30,20 @@ export const useHomeIndex = () => {
   const getAllinfo = async () => {
     const { data } = await currentUserAll()
     const obj = data.data
-    const keys: any[] = Object.keys(currentUser)
-    keys.forEach(key => {
-      currentUser[key] = obj[key]
+    data.data.map(i=>{
+      currentUser['username'] = i.name
+      currentUser['nickname'] = i.role
+      currentUser['email'] = i.email ? i.email : '未设置'
+      currentUser['gender'] = i.gender ? i.gender.toString() : '1'
+      currentUser['date'] = i.createAt
+      currentUser['banner'] = i.img
+      currentUser['avatar'] = i.avatar
+      currentUser['introduce'] = i.desc
     })
-    currentUser.gender = obj.gender.toString()
-    formAllinfo.email = obj.email ? obj.email : '未设置'
-    formAllinfo.gender = obj.gender ? obj.gender.toString() : '1'
-    formAllinfo.introduce = obj.introduce
-    formAllinfo.nickname = obj.nickname
+    // const keys: any[] = Object.keys(currentUser)
+    // keys.forEach(key => {
+    //   currentUser[key] = obj[key]
+    // })
   }
 
   const changeAvatar = (link: string) => {

@@ -18,4 +18,5 @@ declare interface UserAll {
   gender: string
   email: string
   date: string
+  sex: string
 }

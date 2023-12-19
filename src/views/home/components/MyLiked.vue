@@ -27,6 +27,6 @@ const deleteCollectFn = async (id: string) => {
   ElMessage.success('取消点赞成功')
 }
 onMounted(() => {
-  getMyLiked()
+  // getMyLiked()
 })
 </script>

@@ -61,11 +61,21 @@ const getUserInfo = () => {
     currentUserApi(user.userId)
       .then((result: any) => {
         const { data } = result
-        if (data.code === 10003) {
-          ElMessage.error(data.msg)
-          removeItem('user')
+        if (data.status === 200) {
+          let res = data.data
+          let resData = {
+            id: res.id,
+            username: res.name,
+            avatar: res.avatar,
+            role: '',
+            nickname: res.name,
+            banner: res.avatar,
+            introduce: res.desc
+          }
+          userStore.setUser(resData)
         } else {
-          userStore.setUser(data.data)
+          ElMessage.error(data.message)
+          removeItem('user')
         }
       })
       .catch(() => {

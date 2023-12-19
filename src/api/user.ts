@@ -4,7 +4,7 @@ import request from '@/utils/request'
 export const currentUserApi = (id: string) => {
   return request({
     method: 'get',
-    url: `/api/user/currentUser?id=${id}`
+    url: `/api/profile/${id}`
   })
 }
 
@@ -20,7 +20,7 @@ export const findUserById = (id: any) => {
 export const currentUserAll = () => {
   return request({
     method: 'get',
-    url: '/api/user/currentUserAll'
+    url: `/api/user/user?userId=${id}`
   })
 }
 

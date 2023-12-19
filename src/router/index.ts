@@ -241,7 +241,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const token = getItem('user')
+  const token = getItem('token')
   if (to.meta.title) {
     document.title = `${to.meta.title}`
   }

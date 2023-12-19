@@ -26,7 +26,7 @@ export const useStore = defineStore('main', {
     },
     setUserId(id: string) {
       this.user.userId = id
-      id ? setItem('userId', id) : removeItem('userId')
+      String(id) ? setItem('userId', id) : removeItem('userId')
     },
     setUsername(name: string) {
       this.user.username = name
