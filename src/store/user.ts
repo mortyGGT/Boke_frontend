@@ -7,11 +7,15 @@ export const useUserStore = defineStore('user', {
       userinfo: {
         id: '',
         username: '',
-        avatar: '',
-        role: '',
         nickname: '',
+        role: '',
+        email: '',
+        gender: '',
+        date: '',
         banner: '',
-        introduce: ''
+        avatar: '',
+        introduce: '',
+        sex: ''
       }
     }
   },

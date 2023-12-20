@@ -1,7 +1,7 @@
 declare global {
   interface PageParams {
-    page: number
-    pagesize: number
+    page_no: number
+    page_size: number
     authorId?: string
     tagIds?: Array<number>
     year?: string

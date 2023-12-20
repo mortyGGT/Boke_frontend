@@ -4,9 +4,9 @@
     <ElPagination
       background
       layout="prev, pager, next"
-      :page-count="Math.ceil(total / pageParams.pagesize)"
+      :page-count="Math.ceil(total / pageParams.page_size)"
       @current-change="changePage"
-      :current-page="pageParams.page"
+      :current-page="pageParams.page_no"
     >
     </ElPagination>
   </div>
@@ -18,7 +18,7 @@ const props = defineProps<{
 }>()
 const emit = defineEmits(['changePage'])
 const changePage = (val: number) => {
-  props.pageParams.page = val
+  props.pageParams.page_no = val
   emit('changePage')
 }
 </script>

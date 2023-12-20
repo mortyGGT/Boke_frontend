@@ -24,7 +24,7 @@
           <p>{{ currentUser.username }}</p>
         </ElFormItem>
         <ElFormItem label="uid">
-          <p>{{ currentUser.id }}</p>
+          <p>{{ Number(currentUser.id) + 10000 }}</p>
         </ElFormItem>
         <ElFormItem label="角色">
           <p>{{ currentUser.role }}</p>
@@ -40,9 +40,6 @@
             <ElRadio label="1">男</ElRadio>
             <ElRadio label="2">女</ElRadio>
           </ElRadioGroup>
-        </ElFormItem>
-        <ElFormItem label="创建时间">
-          <p>{{ currentUser.date }}</p>
         </ElFormItem>
         <ElFormItem label="发布文章数量">
           <p>1</p>

@@ -7,7 +7,7 @@
       </div>
     </div>
     <el-divider class="tw-my-4"></el-divider>
-    <TagItem v-for="tag in tags" :key="tag.id" :tagId="tag.id" :tagName="tag.tagName" />
+    <TagItem v-for="tag in tags" :key="tag.id" :tagId="tag.id" :tagName="tag.name" />
   </div>
 </template>
 

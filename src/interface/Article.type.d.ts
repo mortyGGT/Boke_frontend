@@ -48,7 +48,7 @@ declare global {
   }
   interface Tag {
     id: number
-    tagName: string
+    name: string
   }
   interface PicVo {
     title: string

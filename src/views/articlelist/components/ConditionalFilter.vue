@@ -23,7 +23,7 @@
             v-for="tag in options"
             :key="tag.id"
           >
-            <span>{{ tag.tagName }}</span>
+            <span>{{ tag.name }}</span>
           </div>
           <div class="change-tag">
             <span>{{ tagPageParams.page }}/{{ Math.ceil(tagTotal / tagPageParams.pagesize) }}</span>
@@ -52,7 +52,7 @@
             v-for="tag in chooseTag"
             :key="tag.id"
             :tagId="tag.id"
-            :tagName="tag.tagName"
+            :tagName="tag.name"
             :closable="true"
             :is-click="false"
             @closeTag="getTagId(tag)"

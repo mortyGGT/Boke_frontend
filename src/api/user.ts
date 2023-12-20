@@ -12,15 +12,15 @@ export const currentUserApi = (id: string) => {
 export const findUserById = (id: any) => {
   return request({
     method: 'get',
-    url: `/api/user/user?userId=${id}`
+    url: `/api/user/${id}`
   })
 }
 
 // 获取当前user的所有信息（除密码）
-export const currentUserAll = () => {
+export const currentUserAll = (id: any) => {
   return request({
     method: 'get',
-    url: `/api/user/user?userId=${id}`
+    url: `/api/user/${id}`
   })
 }
 

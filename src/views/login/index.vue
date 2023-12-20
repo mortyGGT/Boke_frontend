@@ -82,10 +82,8 @@
                 <MyElimage :img="LogoIcon" />
               </div>
               <div class="tw-flex tw-flex-col reg">
-                <p class="register">
-                  欢迎注册到<span class="cartoon"><span>ADK</span>-Blog</span>
-                </p>
-                <p class="shita">Register to ADK-Blog</p>
+                <p class="register">欢迎注册</p>
+                <p class="shita">Register to WST-BLOG</p>
               </div>
             </div>
             <ElForm

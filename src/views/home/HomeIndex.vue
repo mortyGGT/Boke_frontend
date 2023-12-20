@@ -31,7 +31,6 @@ import { useHomeIndex } from '@/hooks/Home'
 import MyCollect from './components/MyCollect.vue'
 import MyLiked from './components/MyLiked.vue'
 const { changeInfo, changeBanner, changeAvatar, currentUser, formAllinfo } = useHomeIndex()
-console.log(currentUser)
 </script>
 
 <style lang="less" scoped>

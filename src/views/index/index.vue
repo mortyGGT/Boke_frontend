@@ -51,7 +51,7 @@
           <!-- <ArticleTimeLine /> -->
         </li>
         <li>
-          <!-- <TagsAll /> -->
+          <TagsAll />
         </li>
         <li>
           <!-- <TimeLine /> -->

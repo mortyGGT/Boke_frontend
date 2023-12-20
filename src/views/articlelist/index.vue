@@ -30,7 +30,7 @@
           <ArticleItem
             class="article-item-sub"
             :article-item="item"
-            :key="item.id"
+            :key="item.ID"
             v-for="item in articles"
           />
         </transition-group>
@@ -64,8 +64,8 @@ const articlesLoading = ref(false) // 文章列表加载
 const route = useRoute() // 重构 tagids 发送一个数组
 
 const pageparams: PageParams = reactive({
-  page: 1,
-  pagesize: 10,
+  page_no: 1,
+  page_size: 2,
   pannel: 0
 }) // 文章 的pageparams
 
@@ -77,8 +77,8 @@ const getArticle = async () => {
   searchLoading.value = true
   articlesLoading.value = true
   const { data } = await listArticleWithCount(pageparams)
-  articles.value = data.data.results
-  total.value = data.data.length
+  articles.value = data.data.page_list
+  total.value = data.data.total_count
   articlesLoading.value = false
   searchLoading.value = false
 }

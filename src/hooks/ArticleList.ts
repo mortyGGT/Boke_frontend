@@ -40,7 +40,7 @@ export const useArticleListConditional = (props, emit) => {
   const currentOrder = ref(0)
   const chooseTag = ref<Tag[]>([])
   // tag的pageparams
-  const tagPageParams: PageParams = reactive({ page: 1, pagesize: 5 })
+  const tagPageParams: PageParams = reactive({ page_no: 1, page_size: 5 })
   const tagloading = ref(false)
   const options = ref<Tag[]>([])
   // ids 存放列表
@@ -87,9 +87,9 @@ export const useArticleListConditional = (props, emit) => {
   // 获取tag api
   const getTag = async () => {
     tagloading.value = true
-    const { data } = await getTagListApi(tagPageParams)
-    if (data.code === 200) {
-      options.value = data.data.results
+    const { data } = await getTagListApi()
+    if (data.status === 200) {
+      options.value = data.data
       tagTotal.value = data.data.length
     } else {
       console.log('error')
@@ -98,10 +98,10 @@ export const useArticleListConditional = (props, emit) => {
   }
   // 获取tag 下一页
   const changeTag = () => {
-    if (tagPageParams.page == Math.ceil(Math.ceil(tagTotal.value / tagPageParams.pagesize))) {
-      tagPageParams.page = 1
+    if (tagPageParams.page_no == Math.ceil(Math.ceil(tagTotal.value / tagPageParams.page_size))) {
+      tagPageParams.page_no = 1
     } else {
-      tagPageParams.page++
+      tagPageParams.page_no++
     }
     getTag()
   }

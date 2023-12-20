@@ -7,7 +7,7 @@ import request from '@/utils/request'
 export const getTagList = () => {
   return request({
     method: 'get',
-    url: '/api/tags/all'
+    url: '/api/tags/list'
   })
 }
 
@@ -99,7 +99,7 @@ export const getIndexBanner = () => {
 export const listArticleWithCount = (pageParams: PageParams) => {
   return request({
     method: 'post',
-    url: '/api/articles/articlelistcount',
+    url: '/api/article',
     data: pageParams
   })
 }
@@ -145,11 +145,10 @@ export const getArticleGroupByTimeApi = () => {
  * @param pageparams 分页参数
  * @returns
  */
-export const getTagListApi = (pageparams: PageParams) => {
+export const getTagListApi = () => {
   return request({
-    method: 'post',
-    url: '/api/tags/taglist',
-    data: pageparams
+    method: 'get',
+    url: '/api/tags/list'
   })
 }
 /**

@@ -1,4 +1,4 @@
-import { currentUserAll, currentUserApi, updateUserInfoApi } from '@/api/user'
+import { currentUserApi, updateUserInfoApi } from '@/api/user'
 import { useUserStore } from '@/store/user'
 import { ElMessage, ElForm } from 'element-plus'
 import { validateEmail, validateJianjie, validateNickname } from '@/utils/validate'
@@ -25,27 +25,33 @@ export const useHomeIndex = () => {
     date: '',
     banner: '',
     avatar: '',
-    introduce: ''
+    introduce: '',
+    sex: ''
   })
   const getAllinfo = async () => {
-    const { data } = await currentUserAll()
-    const obj = data.data
-    data.data.map(i=>{
-      currentUser['username'] = i.name
-      currentUser['nickname'] = i.role
-      currentUser['email'] = i.email ? i.email : '未设置'
-      currentUser['gender'] = i.gender ? i.gender.toString() : '1'
-      currentUser['date'] = i.createAt
-      currentUser['banner'] = i.img
-      currentUser['avatar'] = i.avatar
-      currentUser['introduce'] = i.desc
-    })
-    // const keys: any[] = Object.keys(currentUser)
-    // keys.forEach(key => {
-    //   currentUser[key] = obj[key]
-    // })
-  }
+    const userstore = useStore()
+    const id = userstore.user.userId
+    const { data } = await currentUserApi(id)
+    const i = data.data
+    currentUser['id'] = i.id
+    currentUser['username'] = i.name
+    currentUser['nickname'] = i.name
+    currentUser['role'] = i.role
+    currentUser['email'] = i.email ? i.email : '未设置'
+    currentUser['gender'] = i.gender ? i.gender.toString() : '1'
+    currentUser['date'] = i.createAt
+    currentUser['banner'] = i.img
+    currentUser['avatar'] = i.avatar
+    currentUser['introduce'] = i.desc
+    formAllinfo['email'] = i.email ? i.email : '未设置'
+    formAllinfo['nickname'] = i.name
+    formAllinfo['gender'] = i.gender ? i.gender.toString() : '1'
+    formAllinfo['introduce'] = i.desc
+    formAllinfo['banner'] = i.img
+    formAllinfo['avatar'] = i.avatar
 
+    userStore.setUser(currentUser)
+  }
   const changeAvatar = (link: string) => {
     formAllinfo.avatar = link
     updateUserInfo()
