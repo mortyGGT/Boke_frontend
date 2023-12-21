@@ -66,7 +66,7 @@ export const useLoginMethod = (userStore: any, router: any, form: any) => {
           router.push('/index')
         } else {
           //   登录失败 提示msg
-          ElMessage.error(result.data.msg)
+          ElMessage.error(result.data.message)
         }
       } else {
         ElMessage.error('请校验表单！')

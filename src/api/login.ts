@@ -20,7 +20,7 @@ export const userLogin = (loginParams: unknown) => {
 export const userRegister = (registerParams: unknown) => {
   return request({
     method: 'post',
-    url: '/api/register',
+    url: '/api/user/add',
     data: registerParams
   })
 }
