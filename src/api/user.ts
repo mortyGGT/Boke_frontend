@@ -25,10 +25,10 @@ export const currentUserAll = (id: any) => {
 }
 
 // 修改登录用户的信息
-export const updateUserInfoApi = (updateParams: UpdateUserInfoParams) => {
+export const updateUserInfoApi = (id, updateParams: UpdateUserInfoParams) => {
   return request({
     method: 'post',
-    url: '/api/user/updateUserInfo',
+    url: `/api/profile/${id}`,
     data: updateParams
   })
 }
@@ -54,7 +54,7 @@ export const userCollect = (collectParams: LikeOrCollectParams) => {
  * 获取当前登录用户的收藏 需要分页参数 默认是一页十条
  * @param pageParams
  */
-export const getUserCollect = (pageParams: PageParams = { page: 1, pagesize: 10 }) => {
+export const getUserCollect = (pageParams: PageParams = { page_no: 1, page_size: 10 }) => {
   return request({
     method: 'post',
     url: '/api/userset/findmycollect',
@@ -66,7 +66,7 @@ export const getUserCollect = (pageParams: PageParams = { page: 1, pagesize: 10 
  * @param pageParams
  * @returns
  */
-export const getUserLiked = (pageParams: PageParams = { page: 1, pagesize: 10 }) => {
+export const getUserLiked = (pageParams: PageParams = { page_no: 1, page_size: 10 }) => {
   return request({
     method: 'post',
     url: '/api/userset/findmylike',

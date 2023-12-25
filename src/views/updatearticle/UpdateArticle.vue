@@ -90,7 +90,7 @@ const { tags, addTagFn, canChooseTags } = useTag()
 const getArticle = async () => {
   const { data } = await getArticleItem(articleId.value)
   isLoading.value = false
-  if (data.code === 200) {
+  if (data.status === 200) {
     let article = data.data
     if (article.body.content === '') {
       //如果content为空 可知这个内容是使用富文本编辑器编写的
@@ -114,7 +114,7 @@ const getArticle = async () => {
     updateParam.banner = article.banner
     tags.value = article.tags
   } else {
-    ElMessage.error(data.msg)
+    ElMessage.error(data.message)
   }
 }
 getArticle()

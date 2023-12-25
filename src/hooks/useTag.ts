@@ -7,7 +7,7 @@ export const useTag = () => {
   const options = ref<Tag[]>([])
   const getTag = async () => {
     const { data } = await getTagList()
-    if (data.code === 200) {
+    if (data.status === 200) {
       options.value = data.data
     } else {
       console.log('error')

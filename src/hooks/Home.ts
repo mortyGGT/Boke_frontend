@@ -34,19 +34,19 @@ export const useHomeIndex = () => {
     const { data } = await currentUserApi(id)
     const i = data.data
     currentUser['id'] = i.id
-    currentUser['username'] = i.name
-    currentUser['nickname'] = i.name
+    currentUser['username'] = i.username
+    currentUser['nickname'] = i.nickname
     currentUser['role'] = i.role
     currentUser['email'] = i.email ? i.email : '未设置'
     currentUser['gender'] = i.gender ? i.gender.toString() : '1'
     currentUser['date'] = i.createAt
     currentUser['banner'] = i.img
     currentUser['avatar'] = i.avatar
-    currentUser['introduce'] = i.desc
+    currentUser['introduce'] = i.introduce
     formAllinfo['email'] = i.email ? i.email : '未设置'
-    formAllinfo['nickname'] = i.name
+    formAllinfo['nickname'] = i.nickname
     formAllinfo['gender'] = i.gender ? i.gender.toString() : '1'
-    formAllinfo['introduce'] = i.desc
+    formAllinfo['introduce'] = i.introduce
     formAllinfo['banner'] = i.img
     formAllinfo['avatar'] = i.avatar
 
@@ -73,11 +73,13 @@ export const useHomeIndex = () => {
 
   // 编辑资料完成 调用api修改资料
   const updateUserInfo = async () => {
-    const { data } = await updateUserInfoApi(formAllinfo)
-    if (data.code === 200) {
+    const userstore = useStore()
+    const id = userstore.user.userId
+    const { data } = await updateUserInfoApi(id, formAllinfo)
+    if (data.status === 200) {
       ElMessage.success('修改成功')
     } else {
-      ElMessage.error(data.msg)
+      ElMessage.error(data.message)
     }
     getAllinfo()
   }

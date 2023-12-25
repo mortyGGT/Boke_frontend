@@ -43,12 +43,12 @@ export const useArticle = () => {
     if (commentParams.content != '') {
       commentParams.content = encodeEmoji(commentParams.content)
       const { data } = await addComment(commentParams)
-      if (data.code === 200) {
+      if (data.status === 200) {
         ElMessage.success('发布成功')
         commentParams.content = ''
         getAllComment()
       } else {
-        ElMessage.error(data.msg)
+        ElMessage.error(data.message)
       }
     } else {
       ElMessage.error('内容不能为空')

@@ -68,7 +68,7 @@ export const useBroswer = (
       Loading.value = true
     }
     const { data } = await getBroswerDataApi(broswerParams)
-    if (data.code === 200) {
+    if (data.status === 200) {
       if (broswerParams.page == 1) {
         animeInfoList.value = data.data.results
         page.value = data.data.pages

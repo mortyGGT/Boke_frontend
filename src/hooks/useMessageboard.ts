@@ -47,10 +47,10 @@ export const useMessageApi = (
     }
     messageParams.content = encodeEmoji(messageParams.content)
     const { data } = await addMessageApi(messageParams)
-    if (data.code == 200) {
+    if (data.status == 200) {
       ElMessage.success('发表成功')
     } else {
-      ElMessage.error(data.msg)
+      ElMessage.error(data.message)
     }
     // 清空留言框
     messageParams.content = ''

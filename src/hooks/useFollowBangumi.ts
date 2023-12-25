@@ -60,11 +60,11 @@ export const useChangeFollowStatus = (id: string, oldData: FollowBangumiVo) => {
       return null
     }
     const { data } = await changeStatus(id, status)
-    if (data.code === 200) {
+    if (data.status === 200) {
       ElMessage.success('操作成功')
       oldData.status = data.data.status
     } else {
-      ElMessage.error(data.msg)
+      ElMessage.error(data.message)
     }
   }
 
@@ -78,7 +78,7 @@ export const useChangeProcess = async (processParams: FollowProgressParams, need
     return null
   }
   const { data } = await changeProgress(processParams)
-  if (data.code === 200) {
+  if (data.status === 200) {
     if (needShow) {
       ElMessage.success('操作成功')
     }

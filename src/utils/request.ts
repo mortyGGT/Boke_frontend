@@ -38,10 +38,10 @@ request.interceptors.response.use(
         store.setUserToken('')
       }
     } else if (response.data.status !== 200) {
-      if (response.data.msg) {
-        ElMessage.error(response.data.msg)
+      if (response.data.message) {
+        ElMessage.error(response.data.message)
       }
-      throw new Error(response.data.msg)
+      throw new Error(response.data.message)
     }
     return response
   },

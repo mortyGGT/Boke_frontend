@@ -21,11 +21,12 @@ export const useUpload = async (file: File, loadingNum?: Ref<number>): Promise<s
       }
     })
       .then(({ data }) => {
-        if (data.code !== 200) {
-          ElMessage.error(data.msg)
+        debugger
+        if (data.status !== 200) {
+          ElMessage.error(data.message)
           return url
         } else {
-          url = data.data
+          url = data.url
           resolve(url)
         }
       })
@@ -108,7 +109,6 @@ export const useUploadImg = (emit, init?: string, onlyShow?: boolean) => {
   const upload = async params => {
     const { file } = params
     loading.value = true
-    console.log('upload')
     try {
       const link = await useUpload(file, loadingPercent)
       if (link !== '') {

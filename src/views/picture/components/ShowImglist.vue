@@ -103,9 +103,9 @@ const switchPic = (cnt: number) => {
 }
 const likePicFn = async () => {
   const { data } = await likePic(propsItem.value.id)
-  if (data.code !== 48484) {
+  if (data.status !== 48484) {
     ElMessage.success('点赞成功')
-  } else ElMessage.error(data.msg)
+  } else ElMessage.error(data.message)
 }
 onClickOutside(item, (e: any) => {
   let regex = new RegExp(/el-[\s\S]*/g)

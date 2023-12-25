@@ -111,8 +111,9 @@ export const listArticleWithCount = (pageParams: PageParams) => {
  */
 export const addTag = (tagName: string) => {
   return request({
-    method: 'get',
-    url: `/api/tags/add?tagName=${tagName}`
+    method: 'post',
+    url: `/api/tags/add`,
+    data: { name: tagName }
   })
 }
 

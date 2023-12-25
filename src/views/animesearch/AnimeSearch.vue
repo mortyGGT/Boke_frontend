@@ -141,7 +141,7 @@ const search = async () => {
     ElMessage.error('搜索失败，请稍后重试')
     loading.value = false
     return
-  } else if (data.data.code === 404) {
+  } else if (data.data.status === 404) {
     ElMessage.error('没有搜索到相关结果哦~')
     animeinfoList.value = []
     total.value = 0
