@@ -65,7 +65,7 @@
         />
         <p
           class="bottom"
-          v-if="total <= pageParams.page * pageParams.pagesize && !isLoading && !isAjaxLoading"
+          v-if="total <= pageParams.page_no * pageParams.page_size && !isLoading && !isAjaxLoading"
           ref="bottomText"
         >
           已经没有了哦~

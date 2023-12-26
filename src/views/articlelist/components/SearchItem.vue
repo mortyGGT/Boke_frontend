@@ -24,7 +24,7 @@ const props = defineProps({
   pageParams: {
     type: Object as PropType<PageParams>,
     default: () => {
-      return { page: 1, pagesize: 10 }
+      return { page: 1, page_size: 10 }
     }
   },
   searchLoading: {

@@ -27,7 +27,7 @@
 import { getMessageApi } from '@/api/message'
 let result = ref<MessageVo[]>([])
 const getMsg = async () => {
-  const { data } = await getMessageApi({ page: 1, pagesize: 2 })
+  const { data } = await getMessageApi({ page: 1, page_size: 2 })
   result.value = data.data.results
 }
 onMounted(() => {

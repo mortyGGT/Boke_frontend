@@ -78,7 +78,7 @@ const bannerList = ref<ArticleItemInfo[]>([])
 const userInfo = useStore()
 const pageparams: PageParams = {
   page: 1,
-  pagesize: 5
+  page_size: 5
 }
 // 获取文章列表
 const getIndexfive = async () => {

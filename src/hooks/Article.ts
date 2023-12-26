@@ -24,8 +24,8 @@ export const useArticle = () => {
   const isCollectLoading = ref(false)
   // 评论分页参数
   const pageparams: PageParams = reactive({
-    page: 1,
-    pagesize: 10
+    page_no: 1,
+    page_size: 10
   })
   const totalComment = ref(0)
   // 计算属性 计算相对时间
@@ -95,7 +95,7 @@ export const useArticle = () => {
       const likedValue = !article.value?.isLiked
       if (article.value) {
         const reqParams: LikeOrCollectParams = {
-          articleId: article.value.ID,
+          articleId: String(article.value.ID),
           flag: likedValue
         }
         await userLike(reqParams)

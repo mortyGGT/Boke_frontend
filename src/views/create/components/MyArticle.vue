@@ -28,7 +28,7 @@ const props = defineProps<{
 }>()
 const pageParams = reactive<PageParams>({
   page: 1,
-  pagesize: 10
+  page_size: 10
 })
 const myArticleList = ref<ArticleItemInfo[]>()
 const articleTotal = ref(0)

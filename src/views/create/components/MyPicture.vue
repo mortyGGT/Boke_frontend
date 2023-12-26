@@ -79,7 +79,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import PostImg from '../../picture/components/PostImg.vue'
 const pageParams = reactive<PageParams>({
   page: 1,
-  pagesize: 10,
+  page_size: 10,
   isOrigin: 0
 })
 const imgs = ref<PicVo[]>()

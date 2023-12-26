@@ -26,7 +26,9 @@
             <span>{{ tag.name }}</span>
           </div>
           <div class="change-tag">
-            <span>{{ tagPageParams.page }}/{{ Math.ceil(tagTotal / tagPageParams.pagesize) }}</span>
+            <span
+              >{{ tagPageParams.page_no }}/{{ Math.ceil(tagTotal / tagPageParams.page_size) }}</span
+            >
             <AdkButton
               @click="changeTag"
               type="danger"

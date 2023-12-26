@@ -13,7 +13,7 @@ import MyTab from './MyTab.vue'
 import { ElMessage } from 'element-plus'
 let pageParams = reactive<PageParams>({
   page: 1,
-  pagesize: 10
+  page_size: 10
 })
 let likedArticles = ref<ArticleItemInfo[]>()
 let total = ref(0)

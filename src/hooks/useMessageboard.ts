@@ -12,7 +12,7 @@ export const useMessageBoardParams = () => {
     content: '',
     avatar: userinfo.userinfo.avatar
   })
-  const pageparams = reactive<PageParams>({ page: 1, pagesize: 10 })
+  const pageparams = reactive<PageParams>({ page: 1, page_size: 10 })
   const messageList = ref<MessageVo[]>()
   const total = ref(0)
 
@@ -57,7 +57,7 @@ export const useMessageApi = (
     messageParams.authorName = ''
     messageParams.avatar = Logo
     messageParams.contact = ''
-    pageparams.page = 1
+    pageparams.page_no = 1
     getMessage(pageparams)
   }
   // 排序方法

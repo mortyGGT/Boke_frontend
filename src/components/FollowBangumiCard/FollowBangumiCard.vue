@@ -64,8 +64,8 @@ const customColors = [
   { color: '#00CB7C', percentage: 100 }
 ]
 const pageparams: PageParams = {
-  page: 1,
-  pagesize: 10
+  page_no: 1,
+  page_size: 10
 }
 const currentBangumi = ref<ListInfoResult<FollowBangumiVo>>({
   length: 0,

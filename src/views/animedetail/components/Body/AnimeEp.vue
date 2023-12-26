@@ -74,7 +74,7 @@ const props = defineProps<{
   eps: Array<Bangumi.EpDeatil>
 }>()
 const pageParams = reactive({
-  page: 1
+  page_no: 1
 })
 const arrs = shallowRef<Array<Bangumi.EpDeatil>>([])
 const moreFlag = ref(false)
@@ -94,16 +94,17 @@ if (props.eps && props.eps.length > 100) {
 const nextPage = () => {
   loading.value = true
   if (props.eps) {
-    if (pageParams.page < Math.ceil(props.eps?.length / 100)) {
-      pageParams.page++
+    if (pageParams.page_no < Math.ceil(props.eps?.length / 100)) {
+      pageParams.page_no++
     } else {
       return
     }
-    let length = pageParams.page * 100 > props.eps.length ? props.eps.length : pageParams.page * 100
-    for (let i = (pageParams.page - 1) * 100; i < length; i++) {
+    let length =
+      pageParams.page_no * 100 > props.eps.length ? props.eps.length : pageParams.page_no * 100
+    for (let i = (pageParams.page_no - 1) * 100; i < length; i++) {
       arrs.value.push(props.eps[i])
     }
-    if (pageParams.page >= Math.ceil(props.eps?.length / 100)) {
+    if (pageParams.page_no >= Math.ceil(props.eps?.length / 100)) {
       moreFlag.value = false
     }
   }

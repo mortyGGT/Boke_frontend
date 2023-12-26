@@ -77,8 +77,8 @@ export const useGetPics = layoutImage => {
   const tag = ref<undefined | number>(undefined)
   const isOrigin = ref<number>(0)
   const pageParams = {
-    page: 1,
-    pagesize: 10,
+    page_no: 1,
+    page_size: 10,
     orderRole: orderRole.value,
     tag: tag.value,
     isOrigin: isOrigin.value
@@ -94,8 +94,8 @@ export const useGetPics = layoutImage => {
   )
   // 上传后的增加图片的函数
   const flushImage = async () => {
-    const historyPage = pageParams.page
-    pageParams.page = 1
+    const historyPage = pageParams.page_no
+    pageParams.page_no = 1
     pageParams.orderRole = undefined
     pageParams.isOrigin = 0
     pageParams.tag = undefined
@@ -103,14 +103,14 @@ export const useGetPics = layoutImage => {
     isOrigin.value = 0
     tag.value = undefined
     await getPicsFn()
-    pageParams.page = historyPage
+    pageParams.page_no = historyPage
     layout()
   }
   const getPicsFn = async () => {
     isAjaxLoading.value = true
     const { data } = await getPics(pageParams)
     total.value = data.data.length
-    if (pageParams.page > 1) {
+    if (pageParams.page_no > 1) {
       const res = [...picList.value, ...data.data.results]
       picList.value = [...new Set(res)]
     } else {
@@ -133,7 +133,7 @@ export const useGetPics = layoutImage => {
     isAjaxLoading.value = false
   }
   const getNext = () => {
-    pageParams.page += 1
+    pageParams.page_no += 1
     isLoading.value = true
     getPicsFn()
     layout()
@@ -154,7 +154,10 @@ export const useGetPics = layoutImage => {
           : (windowHeight = document.body.clientHeight)
         const relative = 200 // 相对距离
         if (scrollbar + windowHeight >= scrollHeight - relative) {
-          if ((pageParams.page + 1) * pageParams.pagesize - pageParams.pagesize < total.value) {
+          if (
+            (pageParams.page_no + 1) * pageParams.page_size - pageParams.page_size <
+            total.value
+          ) {
             netAjax()
           }
         }
@@ -164,7 +167,7 @@ export const useGetPics = layoutImage => {
     layout()
   })
   watch([isOrigin, tag, orderRole], async () => {
-    pageParams.page = 1
+    pageParams.page_no = 1
     pageParams.isOrigin = isOrigin.value
     pageParams.tag = tag.value
     pageParams.orderRole = orderRole.value
