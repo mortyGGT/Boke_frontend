@@ -5,14 +5,14 @@
       <h2>{{ article.title }}</h2>
       <time><i class="iconfont icon-riqi"></i>发布于{{ article.CreatedAt }}</time>
     </div>
-    <!-- 作者部分 -->
+    <!-- DIDA-BLOG -->
     <div class="author">
       <div class="img">
         <MyElimage :img="article.authorVo?.avatar" :zip="2" />
       </div>
       <div class="author-info">
-        <p class="author-name">{{ article.authorVo?.nickname }}</p>
-        <p class="introduce">{{ article.authorVo?.introduce }}</p>
+        <p class="author-name">{{ article?.authorVo?.nickname }}</p>
+        <p class="introduce">{{ article?.authorVo?.introduce }}</p>
       </div>
     </div>
     <!-- icon group 文章点赞等信息 -->

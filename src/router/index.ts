@@ -185,14 +185,14 @@ const routes: RouteRecordRaw[] = [
       }
     ]
   },
-  {
-    path: '/welcome',
-    name: 'welcome',
-    meta: {
-      title: '欢迎~'
-    },
-    component: () => import('@/views/newindex/NewIndex.vue')
-  },
+  // {
+  //   path: '/welcome',
+  //   name: 'welcome',
+  //   meta: {
+  //     title: '欢迎~'
+  //   },
+  //   component: () => import('@/views/newindex/NewIndex.vue')
+  // },
   {
     path: '/login',
     name: 'Login',

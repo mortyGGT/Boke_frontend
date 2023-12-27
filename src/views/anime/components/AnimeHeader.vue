@@ -3,7 +3,7 @@
     <div class="anime-header-logo">
       <div>
         <p class="anime-header-logo__uptext">
-          <span class="anime-header-logo__uptext--big">ADK-</span>blog
+          <span class="anime-header-logo__uptext--big">DIDA</span>blog
         </p>
         <p class="anime-header-logo__undertext">Bangumi</p>
       </div>

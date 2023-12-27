@@ -3,7 +3,7 @@
     <div class="filter"></div>
     <TopNavBar />
     <figure class="banner" v-if="article">
-      <MyElimage :img="article.imageUrl" :zip="4" />
+      <MyElimage :img="article.banner" :zip="4" />
     </figure>
     <main class="main">
       <article class="article">
@@ -81,7 +81,7 @@
                   :floor="i + 1"
                   :key="commentitem.ID"
                   :authorId="article.authorVo?.id"
-                  :articleId="article.ID"
+                  :articleId="article.id"
                   @published="publishSecond"
                 />
               </transition-group>
@@ -137,16 +137,11 @@ const toComment = () => {
 }
 useHead({
   // Can be static or computed
-  title: computed(
-    () =>
-      `${
-        article.value?.articleName ? article.value.articleName : '文章详情'
-      } - ADKBlog-我的个人小站`
-  ),
+  title: computed(() => `${article.value?.title ? article.value.title : '文章详情'} - DIDA-BLOG`),
   meta: [
     {
       name: `description`,
-      content: computed(() => (article.value?.summary ? article.value.summary : '描述'))
+      content: computed(() => (article.value?.desc ? article.value.desc : '描述'))
     },
     {
       name: `author`,

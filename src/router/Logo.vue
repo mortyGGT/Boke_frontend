@@ -1,6 +1,6 @@
 <template>
   <aside class="icon">
-    <!-- <router-link to="/welcome"> -->
+    <!-- <router-link to="/page_no"> -->
     <img src="@/assets/img/new-logo.png" />
     <!-- </router-link> -->
     <i @click="openPollup" class="iconfont icon-classification"></i>

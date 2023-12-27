@@ -1,7 +1,7 @@
 <template>
-  <router-link class="box" :to="`/article/${articleItem.ID}`">
+  <router-link class="box" :to="`/article/${articleItem.id}`">
     <figure class="image">
-      <MyElimage :img="articleItem.imageUrl" :zip="2" />
+      <MyElimage :img="articleItem.banner" :zip="2" />
     </figure>
     <article class="content">
       <section class="up">
@@ -12,7 +12,7 @@
           </summary>
         </div>
         <time class="right tw-flex-shrink-0">
-          <time class="time">{{ time }}</time>
+          <time class="time">{{ articleItem.CreatedAt }}</time>
         </time>
       </section>
       <section class="down">
@@ -28,7 +28,7 @@
               v-for="tag in articleItem.tags"
               :key="tag.id"
               :tagId="tag.id"
-              :tagName="tag.tagName"
+              :tagName="tag.name"
             />
           </div>
         </div>

@@ -6,12 +6,15 @@ declare global {
   }
   interface ArticleReqParams {
     id?: string
-    body: ArticleBody
-    summary: string
-    articleName: string
+    content: string | void
+    contentHtml?: string | void
+    html?: string
+    desc: string
+    title: string
     tags: Array<Tag>
     banner: string
-    pannel: number
+    img: string
+    pannel?: number
   }
   interface Content {
     html: string | undefined
@@ -21,11 +24,12 @@ declare global {
     title: string
     author?: string
     imageUrl: string
+    banner?: string
     authorVo?: UserEasy
     content: string
     body?: ArtiStringDecoder
     CreatedAt: string
-    ID: number
+    id: number
     desc: string
     tags?: Array<Tag>
     isLiked?: boolean

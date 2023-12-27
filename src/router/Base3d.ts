@@ -228,7 +228,7 @@ class Base3d {
         window.location.href = '/index'
       }
       // if (name == 'gotofirst') {
-      //   window.location.href = '/welcome'
+      //   window.location.href = '/page_no'
       // }
       if (name == 'gotologin') {
         window.location.href = '/login'

@@ -1,5 +1,5 @@
 <template>
-  <div :class="`adk-button-${type}`" ref="dom">
+  <div :class="`dida-button-${type}`" ref="dom">
     <p>
       <slot> 押す </slot>
     </p>

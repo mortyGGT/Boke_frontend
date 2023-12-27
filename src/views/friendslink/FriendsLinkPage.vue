@@ -1,22 +1,13 @@
 <template>
   <div class="container">
-    <div class="top">
-      <div class="title">友情链接</div>
-      <p class="tip">需要申请友情链接的可以邮件我哦~ 790532173@qq.com</p>
-    </div>
+    <div class="top"></div>
     <ElDivider />
     <div class="content">
       <div class="friendlink">
         <div class="left-image">
           <MyElimage :img="Logo" :zip="2" />
         </div>
-        <div class="info">
-          <div class="up">
-            <a href="https://adkdream.top" target="_blank" class="title">ADK-Blog 我的个人小站</a>
-            <p class="desc">一个基于Vue3和vite的动漫类博客网站 支持了动漫功能和一些其他功能</p>
-          </div>
-          <address class="tw-text-blue-400">地址:https://adkdream.top</address>
-        </div>
+        <div class="info"></div>
       </div>
       <div class="friendlink">
         <div class="left-image">

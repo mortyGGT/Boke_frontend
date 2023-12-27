@@ -43,7 +43,7 @@
           <div class="loginform">
             <div class="tw-w-48 tw-my-5 label--big">
               <p class="zh">登录</p>
-              <p class="en">Login to ADKBLOG</p>
+              <p class="en">Login to DIDA-BLOG</p>
             </div>
             <ElForm label-position="left" ref="ruleFormRef" :rules="rules" :model="form">
               <ElFormItem prop="username">

@@ -5,7 +5,7 @@
         <MyElimage :img="Touxiang" />
       </div>
       <h1 class="welcome" id="welcome">你好 访客</h1>
-      <h2 class="adk" id="adk">我叫ADK</h2>
+      <h2 class="dida" id="dida">我叫ADK</h2>
       <div class="profile" id="profile">
         <p class="label-1" :data-index="0">我来自 广东东莞 今年22岁 是一个兴趣比较广泛的人</p>
         <p class="label-1" :data-index="1">
@@ -41,12 +41,7 @@
         <div class="logo-img">
           <MyElimage :img="Logo" />
         </div>
-        <p class="logo2" :data-index="1">ADK-blog 一款基于vue3和Vite设计的个人博客~</p>
-        <p class="logo2" :data-index="2">
-          开源地址:<a href="https://github.com/ADKcodeXD/Myblog-Vue3viteTs" target="_blank"
-            >https://github.com/ADKcodeXD/Myblog-Vue3viteTs</a
-          >
-        </p>
+        <p class="logo2" :data-index="1">DIDA-blog 一款基于vue3和Vite设计的个人博客</p>
       </div>
       <div class="sns" id="sns">
         <p class="sns-tip">以下是我的所有社交媒体账号</p>
@@ -103,7 +98,7 @@ onMounted(() => {
   gsap.set('#avatar', { y: '50%', scale: 0 })
   gsap.set('.logo-img', { scale: 0 })
   gsap.set('#welcome', { y: '50%' })
-  gsap.set('#adk', { y: '50%' })
+  gsap.set('#dida', { y: '50%' })
   gsap.set('.label-1', { y: 10, opacity: 0 })
   gsap.set('.sns-label', { scale: 0, rotateZ: -90 })
   timeline
@@ -115,7 +110,7 @@ onMounted(() => {
     })
     .to('#avatar', { y: 0, ease: 'power4.out', opacity: 1 })
     .to('#welcome', { y: 0, ease: 'power4.out', opacity: 1 }, '-=0.4')
-    .to('#adk', { y: 0, ease: 'power4.out', opacity: 1 }, '-=0.6')
+    .to('#dida', { y: 0, ease: 'power4.out', opacity: 1 }, '-=0.6')
     .to(
       '.label-1',
       {

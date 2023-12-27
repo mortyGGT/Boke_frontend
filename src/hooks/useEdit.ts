@@ -3,6 +3,8 @@ import { getItem, removeItem, setItem } from '@/utils/storage'
 import { ref, reactive, onBeforeMount, onUnmounted, Ref } from 'vue'
 import { publishArticle } from '@/api/article'
 import { useStore } from '@/store/main'
+import { useUserStore } from '@/store/user'
+
 export const useEditor = () => {
   // 存放两种内容的地方
   const content = reactive<Content>({ html: '', text: '' })
@@ -126,13 +128,12 @@ export const useArticleSubmit = (
       }
       // 创建一个请求参数体
       const articleReqParams: ArticleReqParams = {
-        body: {
-          contentHtml: '',
-          content: ''
-        },
-        summary: '',
-        articleName: '',
+        contentHtml: '',
+        content: '',
+        desc: '',
+        title: '',
         tags: [],
+        imageUrl: '',
         banner: '',
         pannel: pannel.value
       }
@@ -140,16 +141,19 @@ export const useArticleSubmit = (
       // 赋值
       if (editorName.value === 'tinymce') {
         // 不改表结构的情况下 让markdown存入contentHtml中 后续渲染可以直接不用动态切换
-        articleReqParams.body.content = contentRich.text
-        articleReqParams.body.contentHtml = contentRich.html
+        articleReqParams.content = contentRich.text
+        articleReqParams.contentHtml = contentRich.html
       } else {
-        articleReqParams.body.content = content.text
-        articleReqParams.body.contentHtml = content.html
+        articleReqParams.content = content.text
+        articleReqParams.contentHtml = content.html
       }
-      articleReqParams.summary = summary.value
+      articleReqParams.desc = summary.value
       articleReqParams.tags = tags.value
-      articleReqParams.articleName = title.value
+      articleReqParams.title = title.value
       articleReqParams.banner = imglink.value
+      const userInfo = useUserStore()
+
+      articleReqParams.imageUrl = userInfo.userinfo.avatar
       // 请求
       const { data } = await publishArticle(articleReqParams)
       removeItem('temp')
