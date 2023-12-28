@@ -128,6 +128,7 @@ export const useArticleSubmit = (
       }
       // 创建一个请求参数体
       const articleReqParams: ArticleReqParams = {
+        userId: '',
         contentHtml: '',
         content: '',
         desc: '',
@@ -153,6 +154,7 @@ export const useArticleSubmit = (
       articleReqParams.banner = imglink.value
       const userInfo = useUserStore()
 
+      articleReqParams.userId = Number(userInfo.userinfo.id)
       articleReqParams.imageUrl = userInfo.userinfo.avatar
       // 请求
       const { data } = await publishArticle(articleReqParams)

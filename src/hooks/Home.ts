@@ -39,7 +39,7 @@ export const useHomeIndex = () => {
     currentUser['role'] = i.role
     currentUser['email'] = i.email ? i.email : '未设置'
     currentUser['gender'] = i.gender ? i.gender.toString() : '1'
-    currentUser['date'] = i.createAt
+    currentUser['date'] = i.created_at
     currentUser['banner'] = i.img
     currentUser['avatar'] = i.avatar
     currentUser['introduce'] = i.introduce
@@ -49,7 +49,6 @@ export const useHomeIndex = () => {
     formAllinfo['introduce'] = i.introduce
     formAllinfo['banner'] = i.img
     formAllinfo['avatar'] = i.avatar
-
     userStore.setUser(currentUser)
   }
   const changeAvatar = (link: string) => {

@@ -30,7 +30,7 @@
           <ArticleItem
             class="article-item-sub"
             :article-item="item"
-            :key="item.ID"
+            :key="item.id"
             v-for="item in articles"
           />
         </transition-group>

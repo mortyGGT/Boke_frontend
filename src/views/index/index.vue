@@ -40,7 +40,7 @@
           </template>
           <ArticleItem
             v-for="articleItem in articles"
-            :key="articleItem.ID"
+            :key="articleItem.id"
             :articleItem="articleItem"
           />
           <AdkEmpty v-if="articles.length === 0" desc="暂时没有文章发表哦~"></AdkEmpty>

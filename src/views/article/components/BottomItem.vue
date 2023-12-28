@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="tags">
-      <TagItem v-for="tag in article.tags" :key="tag.id" :tagId="tag.id" :tagName="tag.tagName" />
+      <TagItem v-for="tag in article.tags" :key="tag.id" :tagId="tag.id" :tagName="tag.name" />
     </div>
     <div class="good">
       <!-- 点赞部分 -->

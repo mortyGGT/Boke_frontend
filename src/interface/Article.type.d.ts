@@ -6,6 +6,7 @@ declare global {
   }
   interface ArticleReqParams {
     id?: string
+    userId: string | number
     content: string | void
     contentHtml?: string | void
     html?: string
@@ -13,7 +14,7 @@ declare global {
     title: string
     tags: Array<Tag>
     banner: string
-    img: string
+    imageUrl: string
     pannel?: number
   }
   interface Content {

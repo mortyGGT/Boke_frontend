@@ -19,9 +19,9 @@
         <div class="leftcontent">
           <div class="tw-flex tw-items-center">
             <div class="tw-w-8 tw-h-8 tw-rounded-full tw-overflow-hidden tw-mr-2">
-              <!-- <MyElimage :img="articleItem.authorVo.avatar" :zip="1" /> -->
+              <MyElimage :img="articleItem.authorVo.avatar" :zip="1" />
             </div>
-            <!-- <p class="author">{{ articleItem.authorVo.nickname }}</p> -->
+            <p class="author">{{ articleItem.authorVo.nickname }}</p>
           </div>
           <div>
             <TagItem

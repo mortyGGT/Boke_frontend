@@ -65,11 +65,11 @@ const getUserInfo = () => {
           let res = data.data
           let resData = {
             id: res.id,
-            username: res.name,
+            username: res.username,
             avatar: res.avatar,
             role: '',
-            nickname: res.name,
-            banner: res.avatar,
+            nickname: res.nickname,
+            banner: res.banner,
             introduce: res.desc
           }
           userStore.setUser(resData)

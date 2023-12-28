@@ -7,7 +7,7 @@ import '@/assets/styles/myNprogress.css'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/index'
+    redirect: '/login'
   },
   {
     path: '/index',
@@ -209,11 +209,11 @@ const routes: RouteRecordRaw[] = [
     },
     component: () => import('@/views/article/ArticleDetail.vue')
   },
-  {
-    path: '/threeshow',
-    name: 'threeshow',
-    component: () => import('@/views/threeshow/ThreeShow.vue')
-  },
+  // {
+  //   path: '/threeshow',
+  //   name: 'threeshow',
+  //   component: () => import('@/views/threeshow/ThreeShow.vue')
+  // },
   {
     path: '/play',
     name: 'Player',
