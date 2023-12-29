@@ -2,7 +2,6 @@
   <div class="out">
     <el-upload
       class="upload"
-      action=""
       :show-file-list="false"
       :limit="1"
       accept=".png, .jpg, .jpeg"
@@ -44,6 +43,7 @@ const props = defineProps({
     default: true
   }
 })
+
 const { imglink, handleExceed, beforeUpload, upload, loading, loadingPercent, uploadEl } =
   useUploadImg(emit, props.avatar)
 </script>

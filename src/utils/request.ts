@@ -16,7 +16,7 @@ request.interceptors.request.use((config: AxiosRequestConfig) => {
   const url = config.url
   config.cancelToken = source.token
   if (store.user) {
-    config.headers.Authorization = `${store.user.token}`
+    config.headers.Authorization = `Bearer ${store.user.token}`
   }
   // 当有重复请求的时候 则利用这个方式来取消重复的请求
   if (cancel[url]) {

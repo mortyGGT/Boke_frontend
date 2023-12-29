@@ -38,6 +38,7 @@ import { currentUserApi } from '@/api/user'
 import { useUserStore } from '@/store/user'
 import router from '@/router'
 import { userLogout } from '@/api/login'
+
 defineProps({
   backColor: {
     type: String,
@@ -75,7 +76,9 @@ const getUserInfo = () => {
           userStore.setUser(resData)
         } else {
           ElMessage.error(data.message)
-          removeItem('user')
+          removeItem('userId')
+          removeItem('token')
+          removeItem('username')
         }
       })
       .catch(() => {
@@ -91,7 +94,9 @@ const closePollup = () => {
 const logout = async () => {
   await userLogout()
   store.user.token = ''
-  removeItem('user')
+  removeItem('userId')
+  removeItem('token')
+  removeItem('username')
   userStore.setUser({
     id: '',
     username: '',

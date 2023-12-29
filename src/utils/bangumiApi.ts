@@ -11,7 +11,6 @@ const bangumiRequest: any = axios.create({
 //请求拦截器  发请求之前，拦截器可以监测到
 bangumiRequest.interceptors.request.use((config: any) => {
   // config 配置对象
-  // 先暂时不用这个 等我搞明白了登录和回调再来
   const bangumiStore = useBangumiUser()
   if (bangumiStore.access_token) {
     config.headers.Authorization = `Bearer ${bangumiStore.access_token}`

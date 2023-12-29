@@ -3,7 +3,12 @@
   <div class="my-info-easy">
     <!-- icon 头像 -->
     <div class="avatar">
-      <UploadAvatar @imglink="changeAvatar" :is-show="false" :avatar="currentUser.avatar" />
+      <UploadAvatar
+        @imglink="changeAvatar"
+        :is-show="false"
+        :avatar="currentUser.avatar"
+        v-if="currentUser.avatar"
+      />
     </div>
     <div class="infobox">
       <!-- 用户名 -->
@@ -16,7 +21,10 @@
       <div class="introuce">{{ currentUser.introduce }}</div>
       <!-- emil 性别 等 -->
       <div class="more-info">
-        <div class="email"><i class="iconfont icon-riqi"></i>创建日期:{{ currentUser.date }}</div>
+        <div class="email">
+          <i class="iconfont icon-riqi"></i>
+          创建日期:{{ currentUser.date }}
+        </div>
         <div class="email">
           <i class="iconfont icon-youjian"></i>邮件:{{
             currentUser.email ? currentUser.email : '未设置'

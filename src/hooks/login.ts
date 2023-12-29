@@ -57,7 +57,6 @@ export const useLoginMethod = (userStore: any, router: any, form: any) => {
       if (valid) {
         const loginParams = { username: form.username, password: form.password }
         const result = await userLogin(loginParams)
-        console.log(result)
         if (result.data.status === 200) {
           const store = useStore()
           store.setUserToken(result.data.data.token)

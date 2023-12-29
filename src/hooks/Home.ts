@@ -3,6 +3,7 @@ import { useUserStore } from '@/store/user'
 import { ElMessage, ElForm } from 'element-plus'
 import { validateEmail, validateJianjie, validateNickname } from '@/utils/validate'
 import { useStore } from '@/store/main'
+import defaultAvatar from '@/assets/img/404img1200.jpg'
 
 const userStore = useUserStore()
 
@@ -40,14 +41,14 @@ export const useHomeIndex = () => {
     currentUser['email'] = i.email ? i.email : '未设置'
     currentUser['gender'] = i.gender ? i.gender.toString() : '1'
     currentUser['date'] = i.created_at
-    currentUser['banner'] = i.img
-    currentUser['avatar'] = i.avatar
+    currentUser['banner'] = i.banner
+    currentUser['avatar'] = i.avatar || defaultAvatar
     currentUser['introduce'] = i.introduce
     formAllinfo['email'] = i.email ? i.email : '未设置'
     formAllinfo['nickname'] = i.nickname
     formAllinfo['gender'] = i.gender ? i.gender.toString() : '1'
     formAllinfo['introduce'] = i.introduce
-    formAllinfo['banner'] = i.img
+    formAllinfo['banner'] = i.banner
     formAllinfo['avatar'] = i.avatar
     userStore.setUser(currentUser)
   }

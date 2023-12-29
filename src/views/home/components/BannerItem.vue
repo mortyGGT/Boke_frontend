@@ -2,7 +2,7 @@
   <div class="banner">
     <el-upload
       class="upload"
-      action=""
+      action="/gogogo"
       :before-upload="beforeBannerUpload"
       :show-file-list="true"
       :limit="1"
