@@ -5,7 +5,7 @@
       最近更新
       <template #right> welcome to 往生堂 </template>
     </SubTitle>
-    <Carousel :items="bannerList" />
+    <Carousel :items="articles" />
     <!-- <FollowBangumiCard
       v-if="userInfo.user.token && userInfo.followBangumiCard"
       @hide="hideFollowBgmCard"
@@ -67,17 +67,17 @@ export default { name: 'IndexPage' }
 
 <script setup lang="ts">
 import { getIndexArticleApi, getIndexBanner } from '@/api/article'
-import TimeLine from './components/TimeLine.vue'
+// import TimeLine from './components/TimeLine.vue'
 import TagsAll from './components/TagsAll.vue'
-import ArticleTimeLine from './components/ArticleTimeLine.vue'
+// import ArticleTimeLine from './components/ArticleTimeLine.vue'
 import SubTitle from './components/SubTitle.vue'
 import { useStore } from '@/store/main'
 // 获取首页文章 按照时间顺序 5篇
 const articles = ref<ArticleItemInfo[]>([])
-const bannerList = ref<ArticleItemInfo[]>([])
+// const bannerList = ref<ArticleItemInfo[]>([])
 const userInfo = useStore()
 const pageparams: PageParams = {
-  page: 1,
+  page_no: 1,
   page_size: 5
 }
 // 获取文章列表
@@ -87,10 +87,10 @@ const getIndexfive = async () => {
 }
 const rightUl = ref<HTMLElement>()
 // 获取文章头图
-const getBannerList = async () => {
-  const { data } = await getIndexBanner()
-  bannerList.value = data.data
-}
+// const getBannerList = async () => {
+//   const { data } = await getIndexBanner()
+//   bannerList.value = data.data
+// }
 const hideFollowBgmCard = () => {
   userInfo.setFollowBangumiCard(false)
 }

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <MyPageHeader class="header"> 编辑文章 {{ updateParam.articleName }} </MyPageHeader>
+    <MyPageHeader class="header"> 编辑文章 {{ updateParam.title }} </MyPageHeader>
     <div class="edit" v-if="!isLoading">
       <el-alert
         :title="`本文使用了${isMarkdown ? 'Markdown' : '富文本'}编辑器进行编写，请注意编辑器的选择`"
         type="warning"
         effect="dark"
       />
-      <input class="title" v-model="updateParam.articleName" />
+      <input class="title" v-model="updateParam.title" />
       <div class="summary">
         <el-input
-          v-model="updateParam.summary"
+          v-model="updateParam.desc"
           autosize
           show-word-limit
           maxlength="80"
@@ -72,17 +72,18 @@ const articleId = ref(route.params.id.toString())
 const isMarkdown = ref(false)
 const isLoading = ref(true)
 const updateParam = reactive<ArticleReqParams>({
-  body: {
-    contentHtml: '',
-    content: ''
-  },
-  summary: '',
-  articleName: '',
+  title: '',
+  contentHtml: '',
+  content: '',
+  desc: '',
   banner: '',
   tags: [],
-  id: articleId.value,
-  pannel: 0
+  id: Number(articleId.value),
+  pannel: 0,
+  userId: '',
+  imageUrl: ''
 })
+
 const { changeEditor, changeContentRich, changeContent, editorName, content, contentRich } =
   useEditor()
 const { tags, addTagFn, canChooseTags } = useTag()
@@ -92,27 +93,31 @@ const getArticle = async () => {
   isLoading.value = false
   if (data.status === 200) {
     let article = data.data
-    if (article.body.content === '') {
+    if (article.content === '') {
       //如果content为空 可知这个内容是使用富文本编辑器编写的
       editorName.value = 'tinymce'
       isMarkdown.value = false
-      contentRich.html = article.body.html
-      contentRich.text = article.body.html
-      content.html = article.body.html
-      content.text = article.body.html
+      contentRich.html = article.html
+      contentRich.text = article.html
+      content.html = article.html
+      content.text = article.html
     } else {
       editorName.value = 'markdown'
       isMarkdown.value = true
-      contentRich.html = article.body.html
-      contentRich.text = article.body.content
-      content.html = article.body.html
-      content.text = article.body.content
+      contentRich.html = article.html
+      contentRich.text = article.content
+      content.html = article.html
+      content.text = article.content
     }
-    updateParam.articleName = article.articleName
-    updateParam.summary = article.summary
-    updateParam.tags = article.tags
+    updateParam.title = article.title
+    updateParam.desc = article.desc
     updateParam.banner = article.banner
-    tags.value = article.tags
+    let tagList: any[] = []
+    article.tags.map(i => {
+      tagList.push(i.name)
+    })
+    updateParam.tags = tagList
+    tags.value = tagList
   } else {
     ElMessage.error(data.message)
   }
@@ -153,11 +158,11 @@ const submitChange = () => {
 }
 const submit = async (type: 'rich' | 'markdown') => {
   if (type === 'rich') {
-    updateParam.body.content = ''
-    updateParam.body.contentHtml = contentRich.html
+    updateParam.content = ''
+    updateParam.contentHtml = contentRich.html
   } else {
-    updateParam.body.content = content.text
-    updateParam.body.contentHtml = content.html
+    updateParam.content = content.text
+    updateParam.contentHtml = content.html
   }
   updateParam.tags = tags.value
   await updateMyArticle(updateParam)

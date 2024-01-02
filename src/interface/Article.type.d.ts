@@ -5,7 +5,7 @@ declare global {
     content: string | void
   }
   interface ArticleReqParams {
-    id?: string
+    id?: string | number
     userId: string | number
     content: string | void
     contentHtml?: string | void
@@ -40,6 +40,7 @@ declare global {
     readCount: number
     commentCount: number
     pannel?: number
+    isPrivate: boolean
   }
 
   interface Banner {

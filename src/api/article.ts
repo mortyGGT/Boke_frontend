@@ -183,8 +183,8 @@ export const getMyArticles = (pageparams: PageParams) => {
  */
 export const updateMyArticle = (articleReqParams: ArticleReqParams) => {
   return request({
-    method: 'post',
-    url: '/api/articles/updatemyarticle',
+    method: 'put',
+    url: `/api/articles/update`,
     data: articleReqParams
   })
 }
@@ -193,7 +193,7 @@ export const updateMyArticle = (articleReqParams: ArticleReqParams) => {
  * @param id 文章的id参数
  * @returns
  */
-export const deleteMyArticle = (id: string) => {
+export const deleteMyArticle = (id: number) => {
   return request({
     method: 'post',
     url: `/api/articles/deletemyarticle/${id}`
@@ -204,7 +204,7 @@ export const deleteMyArticle = (id: string) => {
  * @param id 文章id
  * @returns
  */
-export const switchMyArticle = (id: string) => {
+export const switchMyArticle = (id: number) => {
   return request({
     method: 'post',
     url: `/api/articles/switcharticlestate/${id}`

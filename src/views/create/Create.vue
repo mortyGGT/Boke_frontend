@@ -11,7 +11,7 @@
           <MyArticle :user-id="userinfo.userinfo.id" v-if="userinfo.userinfo.id" />
         </el-tab-pane>
         <el-tab-pane label="画廊投稿">
-          <MyPicture />
+          <!-- <MyPicture /> -->
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -26,7 +26,7 @@ export default {
 <script setup lang="ts">
 import { useUserStore } from '@/store/user'
 import MyArticle from './components/MyArticle.vue'
-import MyPicture from './components/MyPicture.vue'
+// import MyPicture from './components/MyPicture.vue'
 const userinfo = useUserStore()
 </script>
 <style lang="less" scoped>

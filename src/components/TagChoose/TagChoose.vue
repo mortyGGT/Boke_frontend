@@ -13,7 +13,7 @@
             :key="tag"
             @close="removeTag(tag)"
             class="tw-m-1"
-            >{{ typeof tag === 'object' ? tag.tagName : tag }}</ElTag
+            >{{ typeof tag === 'object' ? tag.name : tag }}</ElTag
           >
         </div>
         <p class="tw-flex-shrink-0 limit">{{ choosedTag.length }}/{{ limit }}</p>

@@ -69,8 +69,8 @@ export const useArticleListConditional = (props, emit) => {
       chooseTag.value?.push(tag)
     }
     // 如果没有tag  发送一个 undefined
-    if (currentTagIds.value.length === 0) props.pageParams.tagIds = undefined
-    else props.pageParams.tagIds = currentTagIds.value
+    if (currentTagIds.value.length === 0) props.pageParams.tags = undefined
+    else props.pageParams.tags = chooseTag.value
     emit('changeConditional')
   }
   // 年月日
@@ -123,9 +123,9 @@ export const useArticleListConditional = (props, emit) => {
         currentTagIds.value.push(Number(route.query.tagId))
         chooseTag.value.push({
           id: Number(route.query.tagId),
-          tagName: route.query.tagName.toString()
+          name: route.query.tagName.toString()
         })
-        props.pageParams.tagIds = currentTagIds.value
+        props.pageParams.tags = chooseTag.value
       } catch (error) {
         ElMessage.error('查询出错')
       }

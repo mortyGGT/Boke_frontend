@@ -10,10 +10,10 @@
         <div class="content" @click="$router.push(`/article/${item.id}`)">
           <!-- <h2 class="title">{{ item.articleName }}</h2> -->
           <div class="desc">
-            <p class="title">{{ item.articleName }}</p>
-            <p class="summary">{{ item.summary }}</p>
+            <p class="title">{{ item.title }}</p>
+            <p class="summary">{{ item.desc }}</p>
             <ElTag effect="dark" v-for="tag in item.tags" :key="tag.id" type="success" class="tag">
-              {{ tag.tagName }}
+              {{ tag.name }}
             </ElTag>
           </div>
           <MyElimage :img="item.banner" notFoundType="3:1" :zip="4" />

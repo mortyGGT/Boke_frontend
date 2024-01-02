@@ -7,13 +7,13 @@
           <li @click="$router.push(`/index/updatearticle/${item.id}`)">编辑</li>
           <li>管理评论</li>
           <li class="danger" @click="deleteArticle(item.id)">删除</li>
-          私有
+          <!-- 私有
           <el-switch
             v-model="item.isPrivate"
             :active-value="1"
             :inactive-value="0"
             @change="switchPrivate(item.id)"
-          />
+          /> -->
         </ul>
       </div>
     </div>
@@ -27,7 +27,7 @@ const props = defineProps<{
   userId: string
 }>()
 const pageParams = reactive<PageParams>({
-  page: 1,
+  page_no: 1,
   page_size: 10
 })
 const myArticleList = ref<ArticleItemInfo[]>()
@@ -37,10 +37,10 @@ const getMyarticleFn = async () => {
     ElMessage.error('请登录后重试')
   }
   const { data } = await getMyArticles(pageParams)
-  myArticleList.value = data.data.results
-  articleTotal.value = data.data.length
+  myArticleList.value = data.data.page_list
+  articleTotal.value = data.data.total_count
 }
-const switchPrivate = async (id: string) => {
+const switchPrivate = async (id: number) => {
   try {
     await switchMyArticle(id)
     ElMessage.success('修改成功')
@@ -49,7 +49,7 @@ const switchPrivate = async (id: string) => {
     ElMessage.error('出现错误')
   }
 }
-const deleteArticle = async (id: string) => {
+const deleteArticle = async (id: number) => {
   ElMessageBox.confirm(
     '删除文章后，数据库中将永远失去该文章的所有数据，也无法再次查看！',
     '删除文章',
