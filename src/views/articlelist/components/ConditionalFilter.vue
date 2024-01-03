@@ -62,7 +62,7 @@
         </div>
       </transition>
     </div>
-    <div class="order">
+    <!-- <div class="order">
       <div class="label">
         <p class="label-rotate-4">排序</p>
         <span class="label-rotate-m6">&nbsp;Sort</span>
@@ -103,7 +103,7 @@
           倒序
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="order">
       <div class="label">
         <p class="label-rotate-m4">板块</p>

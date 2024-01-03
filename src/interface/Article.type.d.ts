@@ -28,6 +28,7 @@ declare global {
     banner?: string
     authorVo?: UserEasy
     content: string
+    contentHtml?: string
     body?: ArtiStringDecoder
     CreatedAt: string
     id: number

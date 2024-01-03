@@ -22,7 +22,7 @@
           <div class="article-container" ref="articleContainer">
             <ArticleSummary :article="article" />
             <!-- 主体部分 -->
-            <ArticleBody :html="article.content" />
+            <ArticleBody :html="article.content ? article.content : article.contentHtml" />
             <!-- 结束部分 显示查看数 点赞数 以及评论数 -->
             <ElDivider />
           </div>

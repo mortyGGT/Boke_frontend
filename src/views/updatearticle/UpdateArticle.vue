@@ -97,16 +97,16 @@ const getArticle = async () => {
       //如果content为空 可知这个内容是使用富文本编辑器编写的
       editorName.value = 'tinymce'
       isMarkdown.value = false
-      contentRich.html = article.html
-      contentRich.text = article.html
-      content.html = article.html
-      content.text = article.html
+      contentRich.html = article.contentHtml
+      contentRich.text = article.contentHtml
+      content.html = article.contentHtml
+      content.text = article.contentHtml
     } else {
       editorName.value = 'markdown'
       isMarkdown.value = true
-      contentRich.html = article.html
+      contentRich.html = article.contentHtml
       contentRich.text = article.content
-      content.html = article.html
+      content.html = article.contentHtml
       content.text = article.content
     }
     updateParam.title = article.title
