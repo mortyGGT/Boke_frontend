@@ -69,17 +69,17 @@
               </div>
             </div>
             <AdkEmpty
-              v-if="commentList.length === 0"
+              v-if="commentList && commentList.length === 0"
               desc="还没有评论哦~快来发送第一条吧"
             ></AdkEmpty>
-            <div class="comment-list">
+            <div class="comment-list" v-if="commentList && commentList.length > 0">
               <transition-group name="list">
                 <CommentItem
                   class="list-item"
                   v-for="(commentitem, i) in commentList"
                   :commentInfo="commentitem"
                   :floor="i + 1"
-                  :key="commentitem.ID"
+                  :key="commentitem.id"
                   :authorId="article.authorVo?.id"
                   :articleId="article.id"
                   @published="publishSecond"

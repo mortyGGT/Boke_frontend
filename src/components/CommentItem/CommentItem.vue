@@ -48,11 +48,11 @@
         <div v-if="commentInfo.childrens">
           <SecondComment
             v-for="item in commentInfo.childrens"
-            :key="item.ID"
+            :key="item.id"
             :authorId="authorId"
             :childrenItem="item"
             :parentUserId="commentInfo.user?.id"
-            :parentId="commentInfo.ID"
+            :parentId="commentInfo.id"
             :articleId="articleId"
             @published="published"
           />
@@ -76,8 +76,8 @@ defineProps({
     default: 1
   },
   articleId: {
-    type: Number || String,
-    default: '1'
+    type: [String, Number],
+    default: 1
   },
   reply: {
     type: Boolean,

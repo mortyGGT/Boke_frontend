@@ -39,14 +39,14 @@ const props = defineProps({
     }
   },
   articleId: {
-    type: String || Number,
-    default: '1'
+    type: [String, Number],
+    default: 1
   },
   /**
    * 父级评论id 非必须
    */
   parentId: {
-    type: String || Number,
+    type: [String, Number],
     default: ''
   }
 })
@@ -55,12 +55,14 @@ const userStrore = useUserStore()
 // 二级评论逻辑
 let relpycontentShow = ref(false)
 const reqCommentParams = reactive<CommentParams>({
-  articleId: props.articleId,
+  article_id: props.articleId,
   toUid: props.commentInfo.user?.id,
-  parentId: props.parentId !== '' ? props.parentId : props.commentInfo.ID,
-  authorId: userStrore.userinfo.id,
+  parent_id: props.parentId != 0 ? props.parentId : props.commentInfo.id,
+  user_id: Number(userStrore.userinfo.id),
+  nickname: userStrore.userinfo.nickname,
   content: ''
 })
+console.log(reqCommentParams)
 const publishSubComment = async () => {
   if (userStrore.userinfo.id) {
     if (reqCommentParams.content != '') {

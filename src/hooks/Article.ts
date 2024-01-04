@@ -13,8 +13,9 @@ export const useArticle = () => {
   const userStore = useUserStore()
   const user = storeToRefs(userStore).userinfo
   const commentParams: CommentParams = reactive({
-    articleId: route.params.id as string,
-    authorId: user.value.id,
+    article_id: Number(route.params.id),
+    user_id: Number(user.value.id),
+    nickname: user.value.nickname,
     content: ''
   })
   const article = ref<ArticleItemInfo>()
@@ -25,7 +26,7 @@ export const useArticle = () => {
   // 评论分页参数
   const pageparams: PageParams = reactive({
     page_no: 1,
-    page_size: 10
+    page_size: 3
   })
   const totalComment = ref(0)
   // 计算属性 计算相对时间
@@ -42,6 +43,10 @@ export const useArticle = () => {
   const publishComment = async () => {
     if (commentParams.content != '') {
       commentParams.content = encodeEmoji(commentParams.content)
+      commentParams.article_id = Number(route.params.id)
+      const userStore = useUserStore()
+      commentParams.user_id = Number(userStore.userinfo.id)
+      commentParams.nickname = userStore.userinfo.nickname
       const { data } = await addComment(commentParams)
       if (data.status === 200) {
         ElMessage.success('发布成功')
@@ -66,17 +71,20 @@ export const useArticle = () => {
   // 获取评论
   const getAllComment = async () => {
     const { data } = await getComments(route.params.id as string, pageparams)
-    commentList.value = data.data ? data.data : []
-    totalComment.value = data ? data.total : 0
-    commentList.value.map(item => {
-      item.content = decodeEmoji(item.content)
-      if (item.childrens) {
-        item.childrens.forEach(child => {
-          child.content = decodeEmoji(child.content)
-        })
-      }
-      return item
-    })
+    commentList.value = data.data ? data.data.page_list : []
+    totalComment.value = data ? data.data.total_count : 0
+    if (commentList.value && commentList.value.length > 0) {
+      commentList.value.map(item => {
+        item.content = decodeEmoji(item.content)
+        if (item.childrens) {
+          item.childrens.forEach(child => {
+            child.content = decodeEmoji(child.content)
+          })
+        }
+        return item
+      })
+    }
+
     return commentList
   }
   const goTop = () => {
@@ -95,7 +103,7 @@ export const useArticle = () => {
       const likedValue = !article.value?.isLiked
       if (article.value) {
         const reqParams: LikeOrCollectParams = {
-          articleId: String(article.value.ID),
+          articleId: String(article.value.id),
           flag: likedValue
         }
         await userLike(reqParams)

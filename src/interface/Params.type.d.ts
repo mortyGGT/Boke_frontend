@@ -15,11 +15,12 @@ declare global {
     isOrigin?: number
   }
   interface CommentParams {
-    articleId: string | number
+    article_id: string | number
     toUid?: string
-    parentId?: string | number
+    parent_id?: string | number
     content: string
-    authorId: string
+    user_id: number
+    nickname: string
   }
   interface MessageParamsForADK {
     authorName: string
@@ -41,7 +42,7 @@ declare global {
     email: string
   }
   interface LikeOrCollectParams {
-    articleId: string
+    articleId: string | number
     flag: boolean
   }
   interface PicParams {

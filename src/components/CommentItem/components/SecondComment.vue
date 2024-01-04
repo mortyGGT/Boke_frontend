@@ -13,13 +13,13 @@
             <div class="tag tag2">Lv1</div>
           </h3>
         </div>
-        <p>{{ childrenItem.createDate }}</p>
+        <p>{{ childrenItem.CreatedAt }}</p>
       </div>
       <p class="content tw-flex-1">
-        <span v-if="childrenItem?.toUser.id !== parentUserId"
+        <!-- <span v-if="childrenItem?.toUser.id !== parentUserId"
           >回复给<span class="tw-text-blue-500 tw-font-extrabold"
             >@{{ childrenItem.toUser.nickname }} ：</span
-          ></span
+          ></span -->
         >{{ childrenItem.content }}
       </p>
     </div>
@@ -52,14 +52,14 @@ defineProps({
    * 一级评论的userid
    */
   parentUserId: {
-    type: String,
+    type: String || Number,
     default: ''
   },
   /**
    * 文章作者的id
    */
   authorId: {
-    type: String,
+    type: String || Number,
     default: ''
   },
   /**

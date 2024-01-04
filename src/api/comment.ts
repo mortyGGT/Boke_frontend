@@ -13,6 +13,6 @@ export const getComments = (id: string, pageParams: PageParams) => {
   return request({
     method: 'get',
     url: `/api/commentfront/${id}`,
-    data: pageParams
+    params: pageParams
   })
 }
