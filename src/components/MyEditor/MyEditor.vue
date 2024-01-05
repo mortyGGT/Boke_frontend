@@ -7,7 +7,7 @@
     </div>
     <div v-if="editorName == 'tinymce'">
       <Editor
-        api-key="h8f98pdypo6nw0cszfeo8vk97gkvk92wxtwxmiz3e2e05gje"
+        api-key="123"
         :init="editorInit"
         v-model="contentRich.html"
         tinymce-script-src="/tinymce/tinymce.min.js"
@@ -99,8 +99,8 @@ let editorInit = {
       let formdata = new FormData()
       formdata.append('image', blobInfo.blob())
       uploadImage(formdata).then(result => {
-        if (result.data.success) {
-          resolve(result.data.data)
+        if (result.data.status == 200) {
+          resolve(result.data.url)
         } else {
           reject('上传失败')
         }
@@ -127,7 +127,7 @@ const onUploadImg = async (files: FileList, callback: (urls: string[]) => void) 
       })
     })
   )
-  callback(res.map((item: any) => item.data.data))
+  callback(res.map((item: any) => item.data.url))
 }
 const changeEditorName = (val: string) => {
   val === 'tinymce' ? (editorName.value = 'markdown') : (editorName.value = 'tinymce')

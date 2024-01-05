@@ -37,7 +37,7 @@ export const updateUserInfoApi = (id, updateParams: UpdateUserInfoParams) => {
 export const userLike = (likeParams: LikeOrCollectParams) => {
   return request({
     method: 'post',
-    url: '/api/user/like',
+    url: '/api/article/addLike',
     data: likeParams
   })
 }

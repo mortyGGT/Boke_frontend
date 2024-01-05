@@ -103,7 +103,7 @@ export const useArticle = () => {
       const likedValue = !article.value?.isLiked
       if (article.value) {
         const reqParams: LikeOrCollectParams = {
-          articleId: String(article.value.id),
+          articleId: Number(article.value.id),
           flag: likedValue
         }
         await userLike(reqParams)
