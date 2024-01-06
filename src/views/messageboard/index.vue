@@ -5,9 +5,9 @@
         <div style="width: 60px">
           <MyElimage :img="MessageLogo" />
         </div>
-        <p class="title">留言板</p>
+        <p class="title">委托栏</p>
       </div>
-      <p class="desc">输入你的昵称 联系方式 可以给我的网站留言哦~</p>
+      <p class="desc">输入你的昵称 联系方式 作为委托发起人~</p>
     </div>
     <div class="edit-part">
       <div class="liuyan-info">
@@ -24,7 +24,7 @@
             v-model="messageParams.contact"
             show-word-limit
             maxlength="64"
-            placeholder="example@adkdream.top"
+            placeholder="example@xxx.com"
           >
           </ElInput>
         </div>
@@ -50,14 +50,23 @@
           />
         </div>
       </div>
-      <div class="button">
+      <div class="button name">
+        <span>奖励特许卷：</span>
+        <ElInput
+          class="award-input"
+          size="middle"
+          v-model="messageParams.award"
+          show-word-limit
+          maxlength="3"
+        >
+        </ElInput>
         <ElButton @click="publishMessage" class="buttonself" type="success">发布留言</ElButton>
       </div>
     </div>
 
-    <!-- 留言列表 -->
+    <!-- 任务列表 -->
     <div class="paixu">
-      <h2>留言列表</h2>
+      <h2>任务列表</h2>
       <p :class="{ active: orderRole === 2 }" @click="order(2)">默认</p>
       <p :class="{ active: orderRole === 1 }" @click="order(1)">倒序</p>
     </div>

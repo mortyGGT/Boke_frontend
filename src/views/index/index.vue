@@ -3,18 +3,18 @@
     <div class="tw-h-24 ghost"></div>
     <SubTitle>
       最近更新
-      <template #right> welcome to 往生堂 </template>
+      <template #right> welcome to 嘀嗒博客站 </template>
     </SubTitle>
-    <Carousel :items="articles" />
+    <Carousel v-if="articles.length > 0" :items="articles" />
     <!-- <FollowBangumiCard
       v-if="userInfo.user.token && userInfo.followBangumiCard"
       @hide="hideFollowBgmCard"
     /> -->
-    <!-- <SubTitle> 看看新番 </SubTitle>
+    <SubTitle> 看看新番 </SubTitle>
     <section class="bangumi">
       <Bangumimini />
-    </section> -->
-    <SubTitle> 我的文章 </SubTitle>
+    </section>
+    <SubTitle> 文章板块 </SubTitle>
     <section class="view-content">
       <aside class="article">
         <el-card class="box-card">
@@ -48,13 +48,13 @@
       </aside>
       <ul class="rightbox" ref="rightUl">
         <li>
-          <!-- <ArticleTimeLine /> -->
+          <ArticleTimeLine />
         </li>
         <li>
           <TagsAll />
         </li>
         <li>
-          <!-- <TimeLine /> -->
+          <TimeLine />
         </li>
       </ul>
     </section>
@@ -67,9 +67,9 @@ export default { name: 'IndexPage' }
 
 <script setup lang="ts">
 import { getIndexArticleApi, getIndexBanner } from '@/api/article'
-// import TimeLine from './components/TimeLine.vue'
+import TimeLine from './components/TimeLine.vue'
 import TagsAll from './components/TagsAll.vue'
-// import ArticleTimeLine from './components/ArticleTimeLine.vue'
+import ArticleTimeLine from './components/ArticleTimeLine.vue'
 import SubTitle from './components/SubTitle.vue'
 import { useStore } from '@/store/main'
 // 获取首页文章 按照时间顺序 5篇

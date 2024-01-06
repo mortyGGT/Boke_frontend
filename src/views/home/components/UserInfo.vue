@@ -33,6 +33,7 @@
         <div class="email">
           <i class="iconfont icon-gerenzhongxin"></i>用户名:{{ currentUser.username }}
         </div>
+        <div class="email"><i class="iconfont icon-star"></i>特许卷:{{ currentUser.award }}</div>
       </div>
     </div>
   </div>

@@ -6,6 +6,7 @@ declare interface UserEasy {
   nickname: string
   introduce: string
   banner: string
+  award?: number
 }
 declare interface UserAll {
   avatar: string
@@ -19,4 +20,5 @@ declare interface UserAll {
   email: string
   date: string
   sex: string
+  award: number
 }

@@ -3,7 +3,7 @@
     <div class="top"></div>
     <ElDivider />
     <div class="content">
-      <div class="friendlink">
+      <!-- <div class="friendlink">
         <div class="left-image">
           <MyElimage :img="Logo" :zip="2" />
         </div>
@@ -25,7 +25,7 @@
           </div>
           <address class="tw-text-blue-400">地址:https://www.crackingvip.xyz/</address>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

@@ -48,7 +48,7 @@ const routes: RouteRecordRaw[] = [
         path: 'messageboard',
         name: 'MessageBoard',
         meta: {
-          title: '留言板',
+          title: '任务版',
           keepAlive: true
         },
         component: () => import('@/views/messageboard/index.vue')

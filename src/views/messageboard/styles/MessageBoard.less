@@ -89,6 +89,16 @@
         display: flex;
         justify-content: flex-end;
         margin-top: @margin-general;
+        .flexbox(row,flex-end);
+        span {
+          display: flex;
+          flex-shrink: 0;
+          font-size: @mid-text;
+        }
+        .award-input{
+          width: 15%;
+          margin: 0 2.5rem;
+        }
       }
     }
 

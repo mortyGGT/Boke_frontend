@@ -4,94 +4,46 @@
       <div class="avatar" id="avatar">
         <MyElimage :img="Touxiang" />
       </div>
-      <h1 class="welcome" id="welcome">你好 访客</h1>
-      <h2 class="dida" id="dida">我叫ADK</h2>
+      <h1 class="welcome" id="welcome">你好 旅行者</h1>
+      <h2 class="dida" id="dida">这里是嘀嗒博客站</h2>
       <div class="profile" id="profile">
-        <p class="label-1" :data-index="0">我来自 广东东莞 今年22岁 是一个兴趣比较广泛的人</p>
+        <p class="label-1" :data-index="0">可以进行发布文章，插图等行为。注册后可以解锁更多玩法</p>
         <p class="label-1" :data-index="1">
-          虽说兴趣广泛，但是可能也就是~~局限于网络吧
-          我有接触过制作视频，平面设计，有接触过编程。接触过编曲(弃坑了)，也接触过各种不同技能
+          注册成功后可以去委托栏里领取想接下的任务，完成委托后把成果物发送审核，核算后账户会发送对应的特许卷奖励
         </p>
-        <p class="label-1" :data-index="2">总而言之 我目前还是会比较喜欢 ~~~ 前端开发？</p>
+        <p class="label-1" :data-index="2">
+          同样，自己有委托需求的话，不管是写文，设计方案，还是各种各样的想法要求，都可以在委托栏上发布进行发布，并根据自己账号的特许卷发布悬赏
+        </p>
         <p class="label-1" :data-index="3">
-          目前我还是比较喜欢去研究编程相关的，这是我的<a href="" target="_blank">github</a>
+          当别人接下委托并完成后，自己会收到成果物来审核，通过后特许卷会进行扣除并奖励给接收方
         </p>
         <p class="label-1" :data-index="4">
-          说说博客 这个博客在2022年年初有了设计念头 当时只是想着练习相关的技术
-        </p>
-        <p class="label-1" :data-index="4">
-          后面再2022.3月 我将博客的大体搭建好，当时的设计风格是比较丑的
-        </p>
-        <p class="label-1" :data-index="4">
-          经过五月份到六月份近半个月的重构 终于成型，并且制定了相关的风格
+          每月月底会进行资金奖池结算，商城也会同步上架当期奖励物品，每样商品所需的特许卷不一样，用户可以根据自己手上的特许卷进行兑换
         </p>
         <p class="label-1" :data-index="5">
-          在前端方面，我认为我目前会倾向注重设计相关的方面。当然，我对于代码以及逻辑的设计上也是很重视的。
-        </p>
-        <p class="label-1" :data-index="6">
-          总而言之，如果你喜欢我的项目，可以给我去github项目给我点颗星星~
+          目前还有很多待开发的东西如任务委托板块，天书板块，定时任务板块、AI板块、虚拟直播、量化盘等
         </p>
         <p class="label-1" :data-index="7">
-          也可以去<RouterLink to="/messageboard">留言板</RouterLink>给我留言
+          有建议想法的可以去<RouterLink to="/messageboard">留言板</RouterLink>给我留言
         </p>
-        <p class="label-1" :data-index="8">当然，更加可以在本网站注册账号并发送文章（大欢迎~）</p>
-        <p class="label-1" :data-index="9">写于2022.6.13 in Foshan</p>
+        <p class="label-1" :data-index="9">写于2024.1.6 in 往生堂</p>
       </div>
       <div class="logo">
         <div class="logo-img">
           <MyElimage :img="Logo" />
         </div>
-        <p class="logo2" :data-index="1">DIDA-blog 一款基于vue3和Vite设计的个人博客</p>
-      </div>
-      <div class="sns" id="sns">
-        <p class="sns-tip">以下是我的所有社交媒体账号</p>
-        <ul>
-          <li class="sns-label" :data-index="0">
-            <SvgIcon name="wenzi" class="svg" />
-            <p>ADKinsoMaD</p>
-          </li>
-          <li class="sns-label" :data-index="1">
-            <SvgIcon name="wenzi" class="svg" />
-            <p>ADKinsoMaD</p>
-          </li>
-          <li class="sns-label" :data-index="2">
-            <SvgIcon name="wenzi" class="svg" />
-            <p>ADKinsoMaD</p>
-          </li>
-          <li class="sns-label" :data-index="3">
-            <SvgIcon name="wenzi" class="svg" />
-            <p>ADKinsoMaD</p>
-          </li>
-          <li class="sns-label" :data-index="4">
-            <SvgIcon name="wenzi" class="svg" />
-            <p>ADKinsoMaD</p>
-          </li>
-          <li class="sns-label" :data-index="5">
-            <SvgIcon name="wenzi" class="svg" />
-            <p>ADKinsoMaD</p>
-          </li>
-        </ul>
-      </div>
-      <div class="money" id="money">
-        <p class="money-tip">如果可以的话(乞讨) 你可以通过以下途径赞赏我~</p>
-        <div class="pay">
-          <div class="zhifubao">
-            <MyElimage :img="Zhifubao" />
-          </div>
-          <div class="weixin">
-            <MyElimage :img="Wechat" />
-          </div>
-        </div>
+        <p class="logo2" :data-index="1">DIDA-blog 嘀嗒博客站</p>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import Logo from '@/assets/img/new-logo.png'
-import Touxiang from './img/touxiang.jpg'
+import Touxiang from './img/touxiang.png'
 import Wechat from './img/wechat.png'
 import Zhifubao from './img/zhifubao.jpg'
 import gsap from 'gsap'
+import { onMounted } from 'vue'
 
 onMounted(() => {
   let timeline = gsap.timeline({ defaults: { duration: 1 } })
