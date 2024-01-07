@@ -32,6 +32,7 @@ declare global {
     username: string
     nickname: string
     password: string
+    invitation?: string
   }
   interface UpdateUserInfoParams {
     avatar: string

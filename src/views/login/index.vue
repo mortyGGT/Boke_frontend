@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <!-- github 联系方式  -->
-    <ul class="tw-absolute tw-top-2 tw-left-2 tw-flex">
+    <!-- <ul class="tw-absolute tw-top-2 tw-left-2 tw-flex">
       <li>
         <a href="https://github.com/ADKcodeXD" target="_blank"
           ><i class="iconfont icon-github"></i
@@ -17,7 +17,7 @@
           ><i class="iconfont icon-tuite"></i
         ></a>
       </li>
-    </ul>
+    </ul> -->
     <!-- 背景放的那张图 -->
     <div
       class="imgbox"
@@ -85,6 +85,8 @@
                 <p class="register">欢迎注册</p>
                 <p class="shita">Register to WST-BLOG</p>
               </div>
+              <!-- 直接看看 -->
+              <div class="goin goin2" @click="$router.push('/index')"></div>
             </div>
             <ElForm
               label-position="left"
@@ -120,17 +122,19 @@
                 </div>
                 <ElInput type="password" v-model="registerForm.repassword"></ElInput>
               </ElFormItem>
+              <ElFormItem>
+                <div class="tw-w-32 tw-h-10 tw-mr-5 label">
+                  <p class="zh">邀请码(选填)</p>
+                  <p class="en">Invitation</p>
+                </div>
+                <ElInput v-model="registerForm.invitation"></ElInput>
+              </ElFormItem>
             </ElForm>
             <div class="btn">
               <div class="login-btn" @click="isLogin = true"></div>
               <div class="register-btn" @click="submitRegister(registerFormRef)"></div>
             </div>
           </div>
-          <div class="tw-w-40 md:tw-w-72 tw-absolute tw-bottom-4 tw-left-4">
-            <MyElimage :img="Logo" />
-          </div>
-          <!-- 直接看看 -->
-          <div class="goin" @click="$router.push('/index')"></div>
         </div>
       </div>
     </transition>

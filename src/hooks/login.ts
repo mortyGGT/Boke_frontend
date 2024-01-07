@@ -30,7 +30,8 @@ export const useLoginprop = () => {
     username: '',
     nickname: '',
     password: '',
-    repassword: ''
+    repassword: '',
+    invitation: ''
   })
   const registerFormRef = ref<FormInstance>()
   return {
@@ -113,7 +114,8 @@ export const useRegisterMethod = (userStore: any, router: any, registerForm: any
         const registerParams: RegisterParams = {
           username: registerForm.username,
           password: registerForm.password,
-          nickname: registerForm.nickname
+          nickname: registerForm.nickname,
+          invitation: registerForm.invitation
         }
         const result = await userRegister(registerParams)
         if (result.data.status === 200) {

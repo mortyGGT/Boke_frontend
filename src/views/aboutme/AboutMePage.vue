@@ -7,9 +7,9 @@
       <h1 class="welcome" id="welcome">你好 旅行者</h1>
       <h2 class="dida" id="dida">这里是嘀嗒博客站</h2>
       <div class="profile" id="profile">
-        <p class="label-1" :data-index="0">可以进行发布文章，插图等行为。注册后可以解锁更多玩法</p>
+        <p class="label-1" :data-index="0">注册后可以进行发布文章，插图等操作。</p>
         <p class="label-1" :data-index="1">
-          注册成功后可以去委托栏里领取想接下的任务，完成委托后把成果物发送审核，核算后账户会发送对应的特许卷奖励
+          后期可以去委托栏查看其他用户发布的任务，完成委托后成果物会发送给委托方进行审核，核算后账户会发送对应的特许卷奖励
         </p>
         <p class="label-1" :data-index="2">
           同样，自己有委托需求的话，不管是写文，设计方案，还是各种各样的想法要求，都可以在委托栏上发布进行发布，并根据自己账号的特许卷发布悬赏
