@@ -19,16 +19,16 @@
       </li>
     </ul> -->
     <!-- 背景放的那张图 -->
-    <div
+    <!-- <div
       class="imgbox"
       ref="target"
       :style="{ transform: `rotateX(${-yPos}deg) rotateY(${xPos}deg)` }"
-    >
-      <!-- 介绍 -->
-      <div class="jieshao">
+    > -->
+    <!-- 介绍 -->
+    <!-- <div class="jieshao">
         <MyElimage :img="Jieshao" />
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
     <!-- 登录盒子 -->
     <transition
       name="rightout"
@@ -124,8 +124,8 @@
               </ElFormItem>
               <ElFormItem>
                 <div class="tw-w-32 tw-h-10 tw-mr-5 label">
-                  <p class="zh">邀请码(选填)</p>
-                  <p class="en">Invitation</p>
+                  <p class="zh">邀请码</p>
+                  <p class="en">选填</p>
                 </div>
                 <ElInput v-model="registerForm.invitation"></ElInput>
               </ElFormItem>

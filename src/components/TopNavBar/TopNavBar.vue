@@ -68,7 +68,7 @@ const getUserInfo = () => {
             id: res.id,
             username: res.username,
             avatar: res.avatar,
-            role: '',
+            role: res.role,
             nickname: res.nickname,
             banner: res.banner,
             introduce: res.desc

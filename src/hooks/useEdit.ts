@@ -103,6 +103,7 @@ export const useArticleSubmit = (
   const title = ref('这里输入标题')
   const styleChange = ref(false)
   const pannel = ref(0)
+  const isInvite = ref(false)
   // 提交逻辑
   const submitArticle = async () => {
     if (!store.user.token) {
@@ -136,7 +137,8 @@ export const useArticleSubmit = (
         tags: [],
         imageUrl: '',
         banner: '',
-        pannel: pannel.value
+        pannel: pannel.value,
+        isInvite: false
       }
 
       // 赋值
@@ -156,6 +158,8 @@ export const useArticleSubmit = (
 
       articleReqParams.userId = Number(userInfo.userinfo.id)
       articleReqParams.imageUrl = userInfo.userinfo.avatar
+      articleReqParams.isInvite = isInvite.value
+
       // 请求
       const { data } = await publishArticle(articleReqParams)
       removeItem('temp')
@@ -171,7 +175,8 @@ export const useArticleSubmit = (
     styleChange,
     summary,
     title,
-    pannel
+    pannel,
+    isInvite
   }
 }
 

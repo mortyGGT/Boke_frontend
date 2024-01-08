@@ -16,6 +16,7 @@ declare global {
     banner: string
     imageUrl: string
     pannel?: number
+    isInvite: boolean
   }
   interface Content {
     html: string | undefined
@@ -41,7 +42,7 @@ declare global {
     readCount: number
     commentCount: number
     pannel?: number
-    isPrivate: boolean
+    isInvite: boolean
   }
 
   interface Banner {

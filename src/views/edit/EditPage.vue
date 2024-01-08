@@ -50,6 +50,16 @@
               />
             </el-select>
           </div>
+          <div class="role" v-if="isInviteUser">
+            <el-switch
+              v-model="isInvite"
+              class="ml-2"
+              inline-prompt
+              style="--el-switch-on-color: #ff4949; --el-switch-off-color: #13ce66"
+              active-text="仅往生堂可见"
+              inactive-text="所有人可见"
+            />
+          </div>
         </div>
         <div class="publish">
           <el-button type="primary" round size="large" @click="submitArticle" class="submit-btn">
@@ -66,6 +76,13 @@ import { ElInput } from 'element-plus'
 import { useArticleSubmit, useEditor, useSave } from '@/hooks/useEdit'
 import { useTag } from '@/hooks/useTag'
 import { ArticlePannel } from '@/interface/EnumExport'
+import { useUserStore } from '@/store/user'
+const userstore = useUserStore()
+// const isInviteUser = userstore.userinfo.role == '3' || userstore.userinfo.role == '4'
+const isInviteUser = computed(
+  () => userstore.userinfo.role == '3' || userstore.userinfo.role == '4'
+)
+
 const imglink = ref('')
 const changeImagelink = (link: string) => {
   imglink.value = link
@@ -73,7 +90,7 @@ const changeImagelink = (link: string) => {
 const { changeEditor, changeContentRich, changeContent, editorName, content, contentRich } =
   useEditor()
 const { tags, addTagFn, canChooseTags } = useTag()
-const { submitArticle, styleChange, summary, title, pannel } = useArticleSubmit(
+const { submitArticle, styleChange, summary, title, pannel, isInvite } = useArticleSubmit(
   editorName,
   imglink,
   contentRich,

@@ -28,7 +28,8 @@ export const useHomeIndex = () => {
     avatar: '',
     introduce: '',
     sex: '',
-    award: 0
+    award: 0,
+    invitation: ''
   })
   const getAllinfo = async () => {
     const userstore = useStore()
@@ -46,6 +47,8 @@ export const useHomeIndex = () => {
     currentUser['avatar'] = i.avatar || defaultAvatar
     currentUser['introduce'] = i.introduce
     currentUser['award'] = i.award
+    currentUser['invitation'] = i.invitation
+
     formAllinfo['email'] = i.email ? i.email : '未设置'
     formAllinfo['nickname'] = i.nickname
     formAllinfo['gender'] = i.gender ? i.gender.toString() : '1'
