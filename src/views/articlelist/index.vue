@@ -65,7 +65,7 @@ const route = useRoute() // 重构 tagids 发送一个数组
 
 const pageparams: PageParams = reactive({
   page_no: 1,
-  page_size: 5,
+  page_size: 3,
   pannel: 0
 }) // 文章 的pageparams
 

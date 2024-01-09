@@ -1,19 +1,18 @@
 <template>
   <div class="search">
-    <el-autocomplete
+    <el-input
       v-model="pageParams.keyword"
       :size="'large'"
       placeholder="搜索"
       class="iconfont input-search"
       style="width: 100%; margin-right: 1rem"
-      :fetch-suggestions="querySearchAsync"
       @select="handleSelect"
       @change="nullSearch"
     >
-      <template #default="{ item }">
+      <!-- <template #default="{ item }">
         <span class="link">{{ item.articleName }}</span>
-      </template>
-    </el-autocomplete>
+      </template> -->
+    </el-input>
     <div class="search-btn" @click="searchByKeyword"></div>
   </div>
 </template>
@@ -34,10 +33,7 @@ const props = defineProps({
 })
 const emit = defineEmits(['changeKeyword'])
 
-const { handleSelect, querySearchAsync, nullSearch, searchByKeyword } = useArticleListSearch(
-  props,
-  emit
-)
+const { handleSelect, nullSearch, searchByKeyword } = useArticleListSearch(props, emit)
 </script>
 
 <style lang="less" scoped>
