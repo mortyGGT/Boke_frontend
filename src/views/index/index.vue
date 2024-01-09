@@ -3,7 +3,7 @@
     <div class="tw-h-24 ghost"></div>
     <SubTitle>
       最近更新
-      <template #right> welcome to 嘀嗒博客站 </template>
+      <template #right> welcome to {{ subTitle }} </template>
     </SubTitle>
     <Carousel v-if="articles.length > 0" :items="articles" />
     <!-- <FollowBangumiCard
@@ -72,10 +72,12 @@ import TagsAll from './components/TagsAll.vue'
 import ArticleTimeLine from './components/ArticleTimeLine.vue'
 import SubTitle from './components/SubTitle.vue'
 import { useStore } from '@/store/main'
+import { useUserStore } from '@/store/user'
 // 获取首页文章 按照时间顺序 5篇
 const articles = ref<ArticleItemInfo[]>([])
 // const bannerList = ref<ArticleItemInfo[]>([])
 const userInfo = useStore()
+const subTitle = Number(useUserStore().userinfo.role) == 3 ? '赛博往生堂' : '滴答博客站'
 const pageparams: PageParams = {
   page_no: 1,
   page_size: 5
