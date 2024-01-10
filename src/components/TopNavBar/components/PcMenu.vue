@@ -51,15 +51,6 @@
                   <p>关于我</p>
                 </div>
               </el-dropdown-item>
-              <el-dropdown-item>
-                <div
-                  class="tw-flex tw-justify-between tw-items-center"
-                  @click="$router.push('/index/friendslink')"
-                >
-                  <SvgIcon name="link" class="tw-w-8 tw-h-8 tw-mr-2" />
-                  <p>友链</p>
-                </div>
-              </el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>

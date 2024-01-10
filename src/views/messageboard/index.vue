@@ -12,8 +12,8 @@
     <div class="edit-part">
       <div class="liuyan-info">
         <div class="name">
-          <span>您的昵称：</span>
-          <ElInput size="large" v-model="messageParams.authorName" show-word-limit maxlength="16">
+          <span>任务简称：</span>
+          <ElInput size="large" v-model="messageParams.title" show-word-limit maxlength="20">
           </ElInput>
         </div>
         <div class="name">
@@ -32,10 +32,10 @@
       <ElDivider />
       <div class="main-content">
         <div class="msg-avatar">
-          <UploadAvatar
+          <!-- <UploadAvatar
             :avatar="messageParams.avatar ? messageParams.avatar : DefaultAvatar"
             @imglink="changeAvatarParams"
-          />
+          /> -->
         </div>
         <div class="edit-area">
           <V3Emoji
@@ -54,7 +54,7 @@
         <span>奖励特许卷：</span>
         <ElInput
           class="award-input"
-          size="middle"
+          size="default"
           v-model="messageParams.award"
           show-word-limit
           maxlength="3"
@@ -80,7 +80,7 @@
         :level="false"
       />
     </div>
-    <AdkEmpty v-else desc="暂时没有留言哦~"></AdkEmpty>
+    <AdkEmpty v-else desc="暂时没有任务哦~"></AdkEmpty>
 
     <MyPagination
       :pageParams="pageparams"

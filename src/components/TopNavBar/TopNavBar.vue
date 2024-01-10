@@ -71,7 +71,7 @@ const getUserInfo = () => {
             role: res.role,
             nickname: res.nickname,
             banner: res.banner,
-            introduce: res.desc
+            introduce: res.introduce || '暂时还没有写哦'
           }
           userStore.setUser(resData)
         } else {

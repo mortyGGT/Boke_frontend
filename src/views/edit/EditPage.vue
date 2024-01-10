@@ -78,10 +78,7 @@ import { useTag } from '@/hooks/useTag'
 import { ArticlePannel } from '@/interface/EnumExport'
 import { useUserStore } from '@/store/user'
 const userstore = useUserStore()
-// const isInviteUser = userstore.userinfo.role == '3' || userstore.userinfo.role == '4'
-const isInviteUser = computed(
-  () => userstore.userinfo.role == '3' || userstore.userinfo.role == '4'
-)
+const isInviteUser = computed(() => userstore.userinfo.role == '3')
 
 const imglink = ref('')
 const changeImagelink = (link: string) => {

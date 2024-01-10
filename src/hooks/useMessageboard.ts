@@ -4,15 +4,17 @@ import { ElMessage, ElScrollbar } from 'element-plus'
 import { Ref } from 'vue'
 import Logo from '@/assets/img/logo.png'
 import { decodeEmoji, encodeEmoji } from '@/utils/emoji'
+const userinfo = useUserStore()
 export const useMessageBoardParams = () => {
-  const userinfo = useUserStore()
-  const messageParams: MessageParamsForADK = reactive({
-    authorName: '',
-    contact: '',
+  const messageParams: MessageParamsForTask = reactive({
+    title: '',
     content: '',
-    avatar: userinfo.userinfo.avatar
+    contact: '',
+    userId: '',
+    award: 0,
+    isInvite: false
   })
-  const pageparams = reactive<PageParams>({ page: 1, page_size: 10 })
+  const pageparams = reactive<PageParams>({ page_no: 1, page_size: 5 })
   const messageList = ref<MessageVo[]>()
   const total = ref(0)
 
@@ -20,7 +22,7 @@ export const useMessageBoardParams = () => {
 }
 
 export const useMessageApi = (
-  messageParams: MessageParamsForADK,
+  messageParams: MessageParamsForTask,
   pageparams: PageParams,
   messageList: Ref<MessageVo[]>,
   total: Ref<number>
@@ -30,22 +32,21 @@ export const useMessageApi = (
   const body = ref<InstanceType<typeof ElScrollbar>>()
   const getMessage = async (pageparams: PageParams) => {
     const { data } = await getMessageApi(pageparams)
-    total.value = data.data.length
-    messageList.value = data.data.results
+    total.value = data.data.total_count
+    messageList.value = data.data.page_list
   }
   // 留言的逻辑
   const publishMessage = async () => {
     if (!messageParams.content) {
       ElMessage.error('内容不能为空')
       return false
-    } else if (!messageParams.authorName) {
-      ElMessage.error('请输入昵称')
+    } else if (!messageParams.title) {
+      ElMessage.error('请输入标题')
       return false
     }
-    if (!messageParams.avatar) {
-      messageParams.avatar = Logo
-    }
     messageParams.content = encodeEmoji(messageParams.content)
+    messageParams.userId = userinfo.userinfo.id
+    messageParams.award = Number(messageParams.award)
     const { data } = await addMessageApi(messageParams)
     if (data.status == 200) {
       ElMessage.success('发表成功')
@@ -54,9 +55,9 @@ export const useMessageApi = (
     }
     // 清空留言框
     messageParams.content = ''
-    messageParams.authorName = ''
-    messageParams.avatar = Logo
+    messageParams.title = ''
     messageParams.contact = ''
+    messageParams.award = 0
     pageparams.page_no = 1
     getMessage(pageparams)
   }
@@ -92,7 +93,7 @@ export const useMessageApi = (
 }
 
 export const useChangeParams = (
-  messageParams: MessageParamsForADK,
+  messageParams: MessageParamsForTask,
   messageList: Ref<MessageVo[]>
 ) => {
   // 排序规则

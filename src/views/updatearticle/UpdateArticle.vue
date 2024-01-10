@@ -46,6 +46,17 @@
               />
             </el-select>
           </div>
+          <div class="role" v-if="isInviteUser">
+            <p class="label">是否全员可见</p>
+            <el-switch
+              v-model="updateParam.isInvite"
+              class="ml-2"
+              inline-prompt
+              style="--el-switch-on-color: #ff4949; --el-switch-off-color: #13ce66"
+              active-text="仅往生堂可见"
+              inactive-text="所有人可见"
+            />
+          </div>
         </div>
         <div class="banner">
           <p class="label">封面图片</p>
@@ -66,11 +77,14 @@ import { useEditor } from '@/hooks/useEdit'
 import { useTag } from '@/hooks/useTag'
 import { ArticlePannel } from '@/interface/EnumExport'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { useUserStore } from '@/store/user'
+const userstore = useUserStore()
 const route = useRoute()
 const router = useRouter()
 const articleId = ref(route.params.id.toString())
 const isMarkdown = ref(false)
 const isLoading = ref(true)
+const isInviteUser = computed(() => userstore.userinfo.role == '3')
 const updateParam = reactive<ArticleReqParams>({
   title: '',
   contentHtml: '',
@@ -81,7 +95,8 @@ const updateParam = reactive<ArticleReqParams>({
   id: Number(articleId.value),
   pannel: 0,
   userId: '',
-  imageUrl: ''
+  imageUrl: '',
+  isInvite: false
 })
 
 const { changeEditor, changeContentRich, changeContent, editorName, content, contentRich } =
@@ -112,6 +127,9 @@ const getArticle = async () => {
     updateParam.title = article.title
     updateParam.desc = article.desc
     updateParam.banner = article.banner
+    updateParam.pannel = article.pannel
+    updateParam.isInvite = article.isInvite
+
     let tagList: any[] = []
     article.tags.map(i => {
       tagList.push(i.name)
@@ -235,7 +253,14 @@ const submit = async (type: 'rich' | 'markdown') => {
         width: 100px;
       }
     }
+    .role {
+      .flexbox(row,flex-start,center);
+      height: 50px;
 
+      .label {
+        width: 100px;
+      }
+    }
     .publish {
       width: 100%;
 

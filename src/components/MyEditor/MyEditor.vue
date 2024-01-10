@@ -91,7 +91,7 @@ let editorInit = {
     'wordcount'
   ],
   toolbar:
-    'undo redo | formatselect | bold italic backcolor | \
+    'undo redo | formatselect | bold italic backcolor forecolor  | \
            alignleft aligncenter alignright alignjustify | \
            bullist numlist outdent indent | removeformat | help',
   images_upload_handler: (blobInfo: { blob: () => string | Blob }) =>

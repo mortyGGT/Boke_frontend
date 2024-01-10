@@ -49,6 +49,7 @@ const routes: RouteRecordRaw[] = [
         name: 'MessageBoard',
         meta: {
           title: '任务版',
+          requireAuth: true,
           keepAlive: true
         },
         component: () => import('@/views/messageboard/index.vue')

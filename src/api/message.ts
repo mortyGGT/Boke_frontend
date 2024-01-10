@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 
 // 添加留言
-export const addMessageApi = (messageParams: MessageParamsForADK) => {
+export const addMessageApi = (messageParams: MessageParamsForTask) => {
   return request({
     method: 'post',
     url: '/api/message/addmsg',

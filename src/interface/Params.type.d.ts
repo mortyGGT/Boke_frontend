@@ -22,11 +22,13 @@ declare global {
     user_id: number
     nickname: string
   }
-  interface MessageParamsForADK {
-    authorName: string
+  interface MessageParamsForTask {
+    title: string
     contact: string
     content: string
-    avatar: string
+    userId: number | string
+    isInvite: boolean
+    award: number
   }
   interface RegisterParams {
     username: string
