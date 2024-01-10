@@ -52,13 +52,7 @@
       </div>
       <div class="button name">
         <span>奖励特许卷：</span>
-        <ElInput
-          class="award-input"
-          size="default"
-          v-model="messageParams.award"
-          show-word-limit
-          maxlength="3"
-        >
+        <ElInput class="award-input" size="default" v-model="messageParams.award" maxlength="3">
         </ElInput>
         <ElButton @click="publishMessage" class="buttonself" type="success">发布留言</ElButton>
       </div>
@@ -67,8 +61,8 @@
     <!-- 任务列表 -->
     <div class="paixu">
       <h2>任务列表</h2>
-      <p :class="{ active: orderRole === 2 }" @click="order(2)">默认</p>
-      <p :class="{ active: orderRole === 1 }" @click="order(1)">倒序</p>
+      <!-- <p :class="{ active: orderRole === 2 }" @click="order(2)">默认</p> -->
+      <!-- <p :class="{ active: orderRole === 1 }" @click="order(1)">倒序</p> -->
     </div>
 
     <div class="message-part" v-if="messageList">
