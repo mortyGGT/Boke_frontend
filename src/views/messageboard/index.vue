@@ -66,7 +66,7 @@
     </div>
 
     <div class="message-part" v-if="messageList">
-      <CommentItem
+      <Task
         v-for="item in toCommentItem"
         :commentInfo="item"
         :key="item.id"
@@ -98,6 +98,8 @@ import MessageLogo from '@/assets/img/liuyan-logo.png'
 import { useChangeParams, useMessageApi, useMessageBoardParams } from '@/hooks/useMessageboard'
 import DefaultAvatar from '@/assets/img/logo.png'
 import { useEmoji } from '@/hooks/useEmoji'
+import Task from './components/Task.vue'
+
 const { messageParams, pageparams, messageList, total } = useMessageBoardParams()
 
 const { orderRole, publishMessage, order, changePage, body } = useMessageApi(

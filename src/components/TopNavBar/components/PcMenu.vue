@@ -13,14 +13,14 @@
       </li>
       <li @click="$router.push('/index/messageboard')">
         <router-link to="/index/messageboard" v-show="false">首页</router-link>
-        <p>留言板</p>
+        <p>任务板</p>
         <span>Message</span>
       </li>
-      <li @click="$router.push('/index/anime')">
+      <!-- <li @click="$router.push('/index/anime')">
         <router-link to="/index/anime" v-show="false">首页</router-link>
         <p>动漫</p>
         <span>Anime</span>
-      </li>
+      </li> -->
       <li @click="$router.push('/index/edit')">
         <router-link to="/index/edit" v-show="false">首页</router-link>
         <p>写文</p>

@@ -94,7 +94,7 @@ export const useMessageApi = (
 
 export const useChangeParams = (
   messageParams: MessageParamsForTask,
-  messageList: Ref<MessageVo[]>
+  messageList: Ref<TaskItemInfo[]>
 ) => {
   // 排序规则
   const changeAvatarParams = (val: string) => {
@@ -104,15 +104,21 @@ export const useChangeParams = (
     messageParams.content = val
   }
   const toCommentItem = computed(() => {
-    const newCommentList = ref<CommentItemInfo[]>()
+    const newCommentList = ref<TaskItemInfo[]>()
     newCommentList.value = messageList.value.map(item => {
       const obj = {
         content: decodeEmoji(item.content),
         contact: item.contact,
-        nickname: item.authorName,
-        createDate: item.createDate,
+        nickname: item.nickname,
+        CreatedAt: item.CreatedAt,
         id: item.id,
-        avatar: item.avatar
+        avatar: item.avatar,
+        publisherId: item.publisherId,
+        workerId: item.workerId,
+        award: item.award,
+        status: item.status,
+        isInvite: item.isInvite,
+        pannel: item.pannel
       }
       return obj
     })

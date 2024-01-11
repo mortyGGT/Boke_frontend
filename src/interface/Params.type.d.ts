@@ -29,6 +29,7 @@ declare global {
     userId: number | string
     isInvite: boolean
     award: number
+    avatar?: string
   }
   interface RegisterParams {
     username: string

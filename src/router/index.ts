@@ -64,66 +64,66 @@ const routes: RouteRecordRaw[] = [
         },
         component: () => import('@/views/home/HomeIndex.vue')
       },
-      {
-        path: 'anime',
-        name: 'AnimePage',
-        meta: {
-          title: '动漫',
-          requireAuth: false,
-          keepAlive: true
-        },
-        component: () => import('@/views/anime/index.vue')
-      },
-      {
-        path: 'animedetail/:id',
-        name: 'AnimeDetail',
-        meta: {
-          title: '动漫详情',
-          requireAuth: false,
-          keepAlive: true
-        },
-        component: () => import('@/views/animedetail/index.vue')
-      },
-      {
-        path: 'animesearch',
-        name: 'AnimeSearch',
-        meta: {
-          title: '动漫搜索',
-          requireAuth: false,
-          keepAlive: false
-        },
-        component: () => import('@/views/animesearch/AnimeSearch.vue')
-      },
-      {
-        path: 'animeplay/:id/:animeId',
-        name: 'AnimePlay',
-        meta: {
-          title: '动漫播放',
-          requireAuth: false,
-          keepAlive: false
-        },
-        component: () => import('@/views/animeplay/index.vue')
-      },
-      {
-        path: 'animenew',
-        name: 'AnimeNew',
-        meta: {
-          title: '新番速看',
-          requireAuth: false,
-          keepAlive: false
-        },
-        component: () => import('@/views/animenew/AnimeNew.vue')
-      },
-      {
-        path: 'animebgminfo',
-        name: 'AnimeBgmInfo',
-        meta: {
-          title: '我的追番',
-          requireAuth: false,
-          keepAlive: false
-        },
-        component: () => import('@/views/animebgminfo/AnimeBgmInfo.vue')
-      },
+      // {
+      //   path: 'anime',
+      //   name: 'AnimePage',
+      //   meta: {
+      //     title: '动漫',
+      //     requireAuth: false,
+      //     keepAlive: true
+      //   },
+      //   component: () => import('@/views/anime/index.vue')
+      // },
+      // {
+      //   path: 'animedetail/:id',
+      //   name: 'AnimeDetail',
+      //   meta: {
+      //     title: '动漫详情',
+      //     requireAuth: false,
+      //     keepAlive: true
+      //   },
+      //   component: () => import('@/views/animedetail/index.vue')
+      // },
+      // {
+      //   path: 'animesearch',
+      //   name: 'AnimeSearch',
+      //   meta: {
+      //     title: '动漫搜索',
+      //     requireAuth: false,
+      //     keepAlive: false
+      //   },
+      //   component: () => import('@/views/animesearch/AnimeSearch.vue')
+      // },
+      // {
+      //   path: 'animeplay/:id/:animeId',
+      //   name: 'AnimePlay',
+      //   meta: {
+      //     title: '动漫播放',
+      //     requireAuth: false,
+      //     keepAlive: false
+      //   },
+      //   component: () => import('@/views/animeplay/index.vue')
+      // },
+      // {
+      //   path: 'animenew',
+      //   name: 'AnimeNew',
+      //   meta: {
+      //     title: '新番速看',
+      //     requireAuth: false,
+      //     keepAlive: false
+      //   },
+      //   component: () => import('@/views/animenew/AnimeNew.vue')
+      // },
+      // {
+      //   path: 'animebgminfo',
+      //   name: 'AnimeBgmInfo',
+      //   meta: {
+      //     title: '我的追番',
+      //     requireAuth: false,
+      //     keepAlive: false
+      //   },
+      //   component: () => import('@/views/animebgminfo/AnimeBgmInfo.vue')
+      // },
       {
         path: 'options',
         name: 'OptionsPage',
@@ -215,15 +215,15 @@ const routes: RouteRecordRaw[] = [
   //   name: 'threeshow',
   //   component: () => import('@/views/threeshow/ThreeShow.vue')
   // },
-  {
-    path: '/play',
-    name: 'Player',
-    meta: {
-      requireAuth: false,
-      keepAlive: false
-    },
-    component: () => import('@/views/animeplay/index.vue')
-  },
+  // {
+  //   path: '/play',
+  //   name: 'Player',
+  //   meta: {
+  //     requireAuth: false,
+  //     keepAlive: false
+  //   },
+  //   component: () => import('@/views/animeplay/index.vue')
+  // },
   {
     path: '/:pathMatch(.*)*',
     name: 'notfound',

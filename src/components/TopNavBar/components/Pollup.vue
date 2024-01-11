@@ -51,10 +51,10 @@
           <SvgIcon name="pinglun" class="tw-w-12 tw-h-12 tw-mr-2" />
           留言板
         </router-link>
-        <router-link @click="closePollup" to="/index/anime" active-class="router-active">
+        <!-- <router-link @click="closePollup" to="/index/anime" active-class="router-active">
           <SvgIcon name="bofang" class="tw-w-12 tw-h-12 tw-mr-2" />
           动漫
-        </router-link>
+        </router-link> -->
         <router-link @click="closePollup" to="/index/edit" active-class="router-active">
           <SvgIcon name="bianji" class="tw-w-12 tw-h-12 tw-mr-2" />
           写写
