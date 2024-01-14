@@ -65,7 +65,7 @@
       <!-- <p :class="{ active: orderRole === 1 }" @click="order(1)">倒序</p> -->
     </div>
 
-    <div class="message-part" v-if="messageList">
+    <!-- <div class="message-part" v-if="messageList">
       <Task
         v-for="item in toCommentItem"
         :commentInfo="item"
@@ -73,8 +73,8 @@
         :reply="false"
         :level="false"
       />
-    </div>
-    <AdkEmpty v-else desc="暂时没有任务哦~"></AdkEmpty>
+    </div> -->
+    <!-- <AdkEmpty v-else desc="暂时没有任务哦~"></AdkEmpty> -->
 
     <MyPagination
       :pageParams="pageparams"
@@ -108,7 +108,7 @@ const { orderRole, publishMessage, order, changePage, body } = useMessageApi(
   messageList,
   total
 )
-const { changeAvatarParams, toCommentItem } = useChangeParams(messageParams, messageList)
+// const { changeAvatarParams, toCommentItem } = useChangeParams(messageParams, messageList)
 const { optionsName, disableGroup, customSize, customTheme } = useEmoji()
 </script>
 

@@ -118,7 +118,8 @@ export const useChangeParams = (
         award: item.award,
         status: item.status,
         isInvite: item.isInvite,
-        pannel: item.pannel
+        pannel: item.pannel,
+        user: item.user
       }
       return obj
     })

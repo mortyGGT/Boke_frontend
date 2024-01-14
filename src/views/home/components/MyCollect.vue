@@ -12,7 +12,7 @@ import { ElMessage } from 'element-plus'
 import MyTab from './MyTab.vue'
 
 let pageParams = reactive<PageParams>({
-  page: 1,
+  page_no: 1,
   page_size: 10
 })
 let collectArticles = ref<ArticleItemInfo[]>()

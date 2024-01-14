@@ -46,20 +46,6 @@
           @published="published"
           v-if="reply"
         />
-        <!-- 二级评论列表区域 -->
-        <ElDivider v-if="commentInfo.childrens && commentInfo.childrens.length > 0" />
-        <div v-if="commentInfo.childrens">
-          <SecondComment
-            v-for="item in commentInfo.childrens"
-            :key="item.id"
-            :authorId="authorId"
-            :childrenItem="item"
-            :parentUserId="commentInfo.user?.id"
-            :parentId="commentInfo.id"
-            :articleId="articleId"
-            @published="published"
-          />
-        </div>
       </div>
     </div>
   </div>

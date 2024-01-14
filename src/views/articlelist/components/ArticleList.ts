@@ -123,7 +123,7 @@ export const useArticleListConditional = (props, emit) => {
         currentTagIds.value.push(Number(route.query.tagId))
         chooseTag.value.push({
           id: Number(route.query.tagId),
-          tagName: route.query.tagName.toString()
+          name: route.query.tagName.toString()
         })
         props.pageParams.tagIds = currentTagIds.value
       } catch (error) {

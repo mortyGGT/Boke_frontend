@@ -12,7 +12,7 @@ import { deleteUserLiked, getUserLiked } from '@/api/user'
 import MyTab from './MyTab.vue'
 import { ElMessage } from 'element-plus'
 let pageParams = reactive<PageParams>({
-  page: 1,
+  page_no: 1,
   page_size: 10
 })
 let likedArticles = ref<ArticleItemInfo[]>()
