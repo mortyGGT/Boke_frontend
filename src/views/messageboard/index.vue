@@ -31,12 +31,7 @@
       </div>
       <ElDivider />
       <div class="main-content">
-        <div class="msg-avatar">
-          <!-- <UploadAvatar
-            :avatar="messageParams.avatar ? messageParams.avatar : DefaultAvatar"
-            @imglink="changeAvatarParams"
-          /> -->
-        </div>
+        <div class="msg-avatar"></div>
         <div class="edit-area">
           <V3Emoji
             :textArea="true"
@@ -65,16 +60,16 @@
       <!-- <p :class="{ active: orderRole === 1 }" @click="order(1)">倒序</p> -->
     </div>
 
-    <!-- <div class="message-part" v-if="messageList">
+    <div class="message-part" v-if="messageList">
       <Task
         v-for="item in toCommentItem"
         :commentInfo="item"
         :key="item.id"
-        :reply="false"
+        :reply="true"
         :level="false"
       />
-    </div> -->
-    <!-- <AdkEmpty v-else desc="暂时没有任务哦~"></AdkEmpty> -->
+    </div>
+    <AdkEmpty v-else desc="暂时没有任务哦~"></AdkEmpty>
 
     <MyPagination
       :pageParams="pageparams"
@@ -96,7 +91,6 @@ import V3Emoji from 'vue3-emoji'
 import 'vue3-emoji/dist/style.css'
 import MessageLogo from '@/assets/img/liuyan-logo.png'
 import { useChangeParams, useMessageApi, useMessageBoardParams } from '@/hooks/useMessageboard'
-import DefaultAvatar from '@/assets/img/logo.png'
 import { useEmoji } from '@/hooks/useEmoji'
 import Task from './components/Task.vue'
 
@@ -108,7 +102,7 @@ const { orderRole, publishMessage, order, changePage, body } = useMessageApi(
   messageList,
   total
 )
-// const { changeAvatarParams, toCommentItem } = useChangeParams(messageParams, messageList)
+const { changeAvatarParams, toCommentItem } = useChangeParams(messageParams, messageList)
 const { optionsName, disableGroup, customSize, customTheme } = useEmoji()
 </script>
 

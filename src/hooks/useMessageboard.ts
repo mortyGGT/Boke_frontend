@@ -15,7 +15,7 @@ export const useMessageBoardParams = () => {
     isInvite: false
   })
   const pageparams = reactive<PageParams>({ page_no: 1, page_size: 5 })
-  const messageList = ref<MessageVo[]>()
+  const messageList = ref<TaskItemInfo[]>()
   const total = ref(0)
 
   return { messageParams, pageparams, messageList, total }
@@ -24,7 +24,7 @@ export const useMessageBoardParams = () => {
 export const useMessageApi = (
   messageParams: MessageParamsForTask,
   pageparams: PageParams,
-  messageList: Ref<MessageVo[]>,
+  messageList: Ref<TaskItemInfo[]>,
   total: Ref<number>
 ) => {
   // 方法和逻辑区

@@ -16,7 +16,7 @@
               {{ commentInfo.user?.nickname || commentInfo.nickname }}
               <div
                 class="tag"
-                v-if="commentInfo.publisherId && commentInfo.publisherId === authorId"
+                v-if="commentInfo.publisherId && commentInfo.publisherId == Number(authorId)"
               >
                 发布人
               </div>
@@ -46,6 +46,8 @@
           @published="published"
           v-if="reply"
         />
+        <ElButton type="success" @click="relpycontentShow = !relpycontentShow">回复</ElButton>
+
       </div>
     </div>
   </div>
