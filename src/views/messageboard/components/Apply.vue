@@ -1,8 +1,7 @@
 <template>
   <!-- 回复区 -->
   <div class="relpy-container">
-
-      <el-button type="success" plain @click="publishSubComment">发送</el-button>
+    <el-button type="success" plain @click="publishSubComment">发送</el-button>
   </div>
 </template>
 <script setup lang="ts">

@@ -90,7 +90,7 @@ onMounted(() => {
   // TODO : 在回复给出了本层层主外的人 自动出现一个回复给？？
   // if (props.commentInfo.level && props.commentInfo.level > 0) {
   // V3Emoji.value.setText(`回复给@${props.commentInfo.user.nickname}：`)
-  reqCommentParams.content = `回复给@${props.commentInfo.user.nickname}：${reqCommentParams.content}`
+  reqCommentParams.content = `回复给@${props.commentInfo?.user.nickname}：${reqCommentParams.content}`
   // }
 })
 </script>

@@ -40,13 +40,7 @@
       </div>
       <div class="secondcomment">
         <!-- 回复区 -->
-        <Reply
-          :commentInfo="commentInfo"
-          :articleId="articleId"
-          @published="published"
-          v-if="reply"
-        />
-        <ElButton type="success">回复</ElButton>
+        <ElButton type="success">接受</ElButton>
       </div>
     </div>
   </div>

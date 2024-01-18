@@ -80,7 +80,7 @@
                   :commentInfo="commentitem"
                   :floor="i + 1"
                   :key="commentitem.id"
-                  :authorId="article.authorVo?.id"
+                  :authorId="article.userId"
                   :articleId="article.id"
                   @published="publishSecond"
                 />

@@ -64,7 +64,6 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue'
-import { useUserStore } from '@/store/user'
 defineProps({
   commentInfo: {
     type: Object as PropType<CommentItemInfo>,
@@ -80,6 +79,10 @@ defineProps({
     type: [String, Number],
     default: 1
   },
+  authorId: {
+    type: [String, Number],
+    required: true
+  },
   reply: {
     type: Boolean,
     default: true
@@ -89,7 +92,6 @@ defineProps({
     default: true
   }
 })
-const authorId = useUserStore().userinfo.id
 const emit = defineEmits(['published'])
 const published = () => {
   emit('published')

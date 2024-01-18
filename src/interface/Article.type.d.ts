@@ -28,6 +28,7 @@ declare global {
     imageUrl: string
     banner?: string
     authorVo?: UserEasy
+    userId: number
     content: string
     contentHtml?: string
     body?: ArtiStringDecoder
