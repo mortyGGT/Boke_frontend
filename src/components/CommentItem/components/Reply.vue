@@ -60,9 +60,9 @@ const reqCommentParams = reactive<CommentParams>({
   parent_id: props.parentId != 0 ? props.parentId : props.commentInfo.id,
   user_id: Number(userStrore.userinfo.id),
   nickname: userStrore.userinfo.nickname,
-  content: ''
+  content: '',
+  level: props.commentInfo.level
 })
-console.log(reqCommentParams)
 const publishSubComment = async () => {
   if (userStrore.userinfo.id) {
     if (reqCommentParams.content != '') {
@@ -88,9 +88,9 @@ const publishSubComment = async () => {
 const { optionsName, disableGroup, customSize, customTheme } = useEmoji()
 onMounted(() => {
   // TODO : 在回复给出了本层层主外的人 自动出现一个回复给？？
-  // if(props.commentInfo.level&&props.commentInfo.level>1){
-  //     emoji.value.setText(`回复给@${props.commentInfo.user.nickname}：`);
-  //     reqCommentParams.content=`回复给@${props.commentInfo.user.nickname}：`;
+  // if (props.commentInfo.level && props.commentInfo.level > 0) {
+  // V3Emoji.value.setText(`回复给@${props.commentInfo.user.nickname}：`)
+  reqCommentParams.content = `回复给@${props.commentInfo.user.nickname}：${reqCommentParams.content}`
   // }
 })
 </script>

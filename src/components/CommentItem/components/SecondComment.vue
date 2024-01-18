@@ -16,11 +16,11 @@
         <p>{{ childrenItem.CreatedAt }}</p>
       </div>
       <p class="content tw-flex-1">
-        <!-- <span v-if="childrenItem?.toUser.id !== parentUserId"
+        <span v-if="childrenItem?.toUid != parentUserId"
           >回复给<span class="tw-text-blue-500 tw-font-extrabold"
             >@{{ childrenItem.toUser.nickname }} ：</span
           ></span
-        > -->
+        >
         {{ childrenItem.content }}
       </p>
     </div>

@@ -43,13 +43,13 @@ const props = defineProps({
   }
 })
 const word = computed(() => {
-  if (props.article.content && props.article.content.length != 0) {
-    return props.article.content.length
+  if (props.article.contentHtml && props.article.contentHtml.length != 0) {
+    return props.article.contentHtml.length
   }
 })
 const needMin = computed(() => {
-  if (props.article.content && props.article.content.length != 0) {
-    return Math.round(props.article.content.length / 360)
+  if (props.article.contentHtml && props.article.contentHtml.length != 0) {
+    return Math.round(props.article.contentHtml.length / 360)
   }
 })
 </script>

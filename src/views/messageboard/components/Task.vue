@@ -46,8 +46,7 @@
           @published="published"
           v-if="reply"
         />
-        <ElButton type="success" @click="relpycontentShow = !relpycontentShow">回复</ElButton>
-
+        <ElButton type="success">回复</ElButton>
       </div>
     </div>
   </div>

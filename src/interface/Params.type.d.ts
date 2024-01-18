@@ -21,6 +21,7 @@ declare global {
     content: string
     user_id: number
     nickname: string
+    level?: number
   }
   interface MessageParamsForTask {
     title: string
