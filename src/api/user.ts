@@ -46,7 +46,7 @@ export const userLike = (likeParams: LikeOrCollectParams) => {
 export const userCollect = (collectParams: LikeOrCollectParams) => {
   return request({
     method: 'post',
-    url: '/api/user/collect',
+    url: '/api/article/addCollect',
     data: collectParams
   })
 }
