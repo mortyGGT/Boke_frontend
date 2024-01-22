@@ -86,7 +86,7 @@
 </template>
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
-import Logo from '@/assets/img/logo.png'
+import Logo from '@/assets/logo.png'
 import { PropType } from 'vue'
 defineProps({
   userinfo: {

@@ -1,8 +1,8 @@
 import { getItem } from './../utils/storage'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import { ElMessageBox } from 'element-plus'
-// import NProgress from 'nprogress'
-// import '@/assets/styles/myNprogress.css'
+import NProgress from 'nprogress'
+import '@/assets/styles/myNprogress.css'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -226,7 +226,7 @@ router.beforeEach((to, from, next) => {
   }
   if (to.meta.requireAuth) {
     if (token) {
-      // NProgress.start()
+      NProgress.start()
       next()
     } else {
       ElMessageBox.confirm('该页面需要登录才能使用，请问是否跳转到登录页面？', '登录提示', {
@@ -235,7 +235,7 @@ router.beforeEach((to, from, next) => {
         type: 'warning'
       })
         .then(() => {
-          // NProgress.start()
+          NProgress.start()
           next({ path: '/login' })
         })
         .catch(() => {
@@ -243,11 +243,11 @@ router.beforeEach((to, from, next) => {
         })
     }
   } else {
-    // NProgress.start()
+    NProgress.start()
     next()
   }
 })
 router.afterEach(() => {
-  // NProgress.done()
+  NProgress.done()
 })
 export default router

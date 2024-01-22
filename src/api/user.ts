@@ -57,7 +57,7 @@ export const userCollect = (collectParams: LikeOrCollectParams) => {
 export const getUserCollect = (pageParams: PageParams = { page_no: 1, page_size: 10 }) => {
   return request({
     method: 'post',
-    url: '/api/userset/findmycollect',
+    url: '/api/user/collectArt',
     data: pageParams
   })
 }

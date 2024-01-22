@@ -10,7 +10,7 @@ import { useEmoji } from '@/hooks/useEmoji'
 import { useUserStore } from '@/store/user'
 import { useStore } from '@/store/main'
 import { encodeEmoji } from '@/utils/emoji'
-import { ElMessage } from 'element-plus'
+// import { ElMessage } from 'element-plus'
 import { PropType } from 'vue'
 import V3Emoji from 'vue3-emoji'
 import 'vue3-emoji/dist/style.css'
@@ -32,29 +32,31 @@ const props = defineProps({
 })
 const emit = defineEmits(['published'])
 const userStrore = useUserStore()
-
-const publishSubComment = async () => {
-  if (userStrore.userinfo.id) {
-    if (reqCommentParams.content != '') {
-      reqCommentParams.content = encodeEmoji(reqCommentParams.content)
-      const user = useStore()
-      // let parmas = {
-      //   article_id: parseInt(this.id),
-      //   content: reqCommentParams.content,
-      //   user_id: user.user.userId,
-      //   username: user.user.username
-      // }
-      await addComment(reqCommentParams)
-      emit('published')
-      reqCommentParams.content = ''
-      relpycontentShow.value = false
-    } else {
-      ElMessage.error('输入的内容不能为空')
-    }
-  } else {
-    ElMessage.error('您当前未登录')
-  }
+const publishSubComment = () => {
+  console.log(1)
 }
+// const publishSubComment = async () => {
+//   if (userStrore.userinfo.id) {
+//     // if (reqCommentParams.content != '') {
+//     //   reqCommentParams.content = encodeEmoji(reqCommentParams.content)
+//       const user = useStore()
+//       // let parmas = {
+//       //   article_id: parseInt(this.id),
+//       //   content: reqCommentParams.content,
+//       //   user_id: user.user.userId,
+//       //   username: user.user.username
+//       // }
+//       //   await addComment(reqCommentParams)
+//       emit('published')
+//       //   reqCommentParams.content = ''
+//       //   relpycontentShow.value = false
+//     } else {
+//       ElMessage.error('输入的内容不能为空')
+//     }
+//   } else {
+//     ElMessage.error('您当前未登录')
+//   }
+// }
 const { optionsName, disableGroup, customSize, customTheme } = useEmoji()
 onMounted(() => {
   // TODO : 在回复给出了本层层主外的人 自动出现一个回复给？？

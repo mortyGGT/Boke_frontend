@@ -19,8 +19,8 @@ let collectArticles = ref<ArticleItemInfo[]>()
 let total = ref(0)
 const getMyCollect = async () => {
   const { data } = await getUserCollect(pageParams)
-  collectArticles.value = data.data.results
-  total.value = data.data.length
+  collectArticles.value = data.data.page_list
+  total.value = data.data.total_count
 }
 
 const deleteCollectFn = async (id: string) => {
@@ -29,6 +29,6 @@ const deleteCollectFn = async (id: string) => {
 }
 
 onMounted(() => {
-  // getMyCollect()
+  getMyCollect()
 })
 </script>
