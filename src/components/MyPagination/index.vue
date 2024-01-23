@@ -26,5 +26,9 @@ const changePage = (val: number) => {
 <style lang="less" scoped>
 .all {
   .font-normal();
+  margin: 10px;
+  .info {
+    margin-bottom: 4px;
+  }
 }
 </style>

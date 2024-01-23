@@ -13,7 +13,7 @@ import MyTab from './MyTab.vue'
 
 let pageParams = reactive<PageParams>({
   page_no: 1,
-  page_size: 10
+  page_size: 5
 })
 let collectArticles = ref<ArticleItemInfo[]>()
 let total = ref(0)
