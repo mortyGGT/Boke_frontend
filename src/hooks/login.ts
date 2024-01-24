@@ -60,9 +60,23 @@ export const useLoginMethod = (userStore: any, router: any, form: any) => {
         const result = await userLogin(loginParams)
         if (result.data.status === 200) {
           const store = useStore()
-          store.setUserToken(result.data.data.token)
-          store.setUserId(result.data.data.userId)
-          store.setUsername(result.data.data.username)
+          const resData = result.data?.data
+          store.setUserToken(resData.token)
+          store.setUserId(resData.userId)
+          store.setUsername(resData.username)
+          // 如果用户权限为3，添加新的路由
+          if (resData.role >= 3) {
+            await router.addRoute({
+              path: '/market',
+              name: 'Market',
+              meta: {
+                title: '市场',
+                requireAuth: true,
+                keepAlive: true
+              },
+              component: () => import('@/views/market/index.vue')
+            })
+          }
           router.push('/index')
         } else {
           //   登录失败 提示msg

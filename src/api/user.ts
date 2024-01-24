@@ -80,8 +80,8 @@ export const getUserLiked = (pageParams: PageParams = { page_no: 1, page_size: 1
  */
 export const deleteUserCollect = (articleId: string) => {
   return request({
-    method: 'delete',
-    url: `/api/userset/deletemycollect/${articleId}`
+    method: 'post',
+    url: `/api/user/collectArt/del/${articleId}`
   })
 }
 

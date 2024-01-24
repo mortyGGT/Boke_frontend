@@ -19,7 +19,7 @@ export const getTagList = () => {
 export const publishArticle = (articleReqParams: any) => {
   return request({
     method: 'post',
-    url: '/api/articles/publish',
+    url: '/api/article/publish',
     data: articleReqParams
   })
 }
@@ -87,7 +87,7 @@ export const getArticleItem = (id: number | string) => {
 export const getIndexBanner = () => {
   return request({
     method: 'get',
-    url: '/api/articles/indexbanner'
+    url: '/api/article/indexbanner'
   })
 }
 
@@ -137,7 +137,7 @@ export const getIndexArticleApi = (pageparams: PageParams) => {
 export const getArticleGroupByTimeApi = () => {
   return request({
     method: 'get',
-    url: '/api/articles/articletime'
+    url: '/api/article/articletime'
   })
 }
 
@@ -160,7 +160,7 @@ export const getTagListApi = () => {
 export const getSearchTipApi = (keyword: string) => {
   return request({
     method: 'get',
-    url: '/api/articles/searchtip',
+    url: '/api/article/searchtip',
     params: { keyword: keyword }
   })
 }
@@ -172,7 +172,7 @@ export const getSearchTipApi = (keyword: string) => {
 export const getMyArticles = (pageparams: PageParams) => {
   return request({
     method: 'post',
-    url: '/api/articles/myarticle',
+    url: '/api/article/myarticle',
     data: pageparams
   })
 }
@@ -184,7 +184,7 @@ export const getMyArticles = (pageparams: PageParams) => {
 export const updateMyArticle = (articleReqParams: ArticleReqParams) => {
   return request({
     method: 'put',
-    url: `/api/articles/update`,
+    url: `/api/article/update`,
     data: articleReqParams
   })
 }
@@ -196,7 +196,7 @@ export const updateMyArticle = (articleReqParams: ArticleReqParams) => {
 export const deleteMyArticle = (id: number) => {
   return request({
     method: 'post',
-    url: `/api/articles/deletemyarticle/${id}`
+    url: `/api/article/deletemyarticle/${id}`
   })
 }
 /**
@@ -206,7 +206,7 @@ export const deleteMyArticle = (id: number) => {
  */
 export const switchMyArticle = (id: number) => {
   return request({
-    method: 'post',
-    url: `/api/articles/switcharticlestate/${id}`
+    method: 'put',
+    url: `/api/article/switchInvite/${id}`
   })
 }

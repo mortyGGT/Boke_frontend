@@ -5,15 +5,16 @@
       <div class="button-group">
         <ul class="pannel">
           <li @click="$router.push(`/index/updatearticle/${item.id}`)">编辑</li>
-          <li>管理评论</li>
+          <!-- <li>管理评论</li> -->
           <li class="danger" @click="deleteArticle(item.id)">删除</li>
-          <!-- 私有
+          <span v-if="Number(userinfo.role) >= 3">是否为往生堂限定&nbsp;</span>
           <el-switch
-            v-model="item.isPrivate"
-            :active-value="1"
-            :inactive-value="0"
+            v-if="Number(userinfo.role) >= 3"
+            v-model="item.isInvite"
+            :active-value="true"
+            :inactive-value="false"
             @change="switchPrivate(item.id)"
-          /> -->
+          />
         </ul>
       </div>
     </div>
@@ -23,12 +24,15 @@
 <script setup lang="ts">
 import { deleteMyArticle, getMyArticles, switchMyArticle } from '@/api/article'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { useUserStore } from '@/store/user'
+
+const { userinfo } = useUserStore()
 const props = defineProps<{
   userId: string
 }>()
 const pageParams = reactive<PageParams>({
   page_no: 1,
-  page_size: 10
+  page_size: 5
 })
 const myArticleList = ref<ArticleItemInfo[]>()
 const articleTotal = ref(0)

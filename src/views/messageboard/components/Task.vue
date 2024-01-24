@@ -40,7 +40,7 @@
       </div>
       <div class="secondcomment">
         <!-- 回复区 -->
-        <ElButton type="success">接受</ElButton>
+        <ElButton class="apply-btn" type="success">接受</ElButton>
       </div>
     </div>
   </div>

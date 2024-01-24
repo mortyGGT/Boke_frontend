@@ -51,6 +51,15 @@
                   <p>关于我</p>
                 </div>
               </el-dropdown-item>
+              <el-dropdown-item>
+                <div
+                  class="tw-flex tw-justify-between tw-items-center"
+                  @click="$router.push('/market')"
+                >
+                  <SvgIcon name="yonghu" class="tw-w-8 tw-h-8 tw-mr-2" />
+                  <p>市场</p>
+                </div>
+              </el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>

@@ -62,8 +62,9 @@
 
     <div class="message-part" v-if="messageList">
       <Task
-        v-for="item in toCommentItem"
+        v-for="(item, index) in toCommentItem"
         :commentInfo="item"
+        :floor="index + 1"
         :key="item.id"
         :reply="true"
         :level="false"
