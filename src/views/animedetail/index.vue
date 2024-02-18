@@ -136,10 +136,10 @@ provide('infoboxVal', infoBox)
 useHead({
   title: computed(() => {
     if (animeDetail.value) {
-      if (animeDetail.value.name_cn) return `${animeDetail.value.name_cn}-DIDA-BLOG`
-      else return `${animeDetail.value.name}-DIDA-BLOG`
+      if (animeDetail.value.name_cn) return `${animeDetail.value.name_cn}-DIDA-PUNK`
+      else return `${animeDetail.value.name}-DIDA-PUNK`
     } else {
-      return '动漫详情-DIDA-BLOG'
+      return '动漫详情-DIDA-PUNK'
     }
   }),
   meta: [

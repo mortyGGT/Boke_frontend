@@ -18,7 +18,7 @@
 export default { name: '404Page' }
 </script>
 <script setup lang="ts">
-import notfound from '@/assets/img/404 page notfound.png'
+import notfound from '@/assets/img/404pagenotfound.png'
 </script>
 <style lang="less" scoped>
 .container {

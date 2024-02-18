@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <aside class="left">
-      <p class="one">DIDA-blog</p>
+      <p class="one">DIDA-PUNK</p>
       <p class="two">仅供学习使用 本博客站为个人用途 无任何盈利用途</p>
       <!-- <p class="three">
         备案/许可证编号:<a href="https://beian.miit.gov.cn" target="_blank">粤ICP备2022022555号</a>

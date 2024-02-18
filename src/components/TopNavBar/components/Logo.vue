@@ -1,7 +1,7 @@
 <template>
   <aside class="icon">
     <!-- <router-link to="/welcome"> -->
-    <img src="@/assets/img/WebBlog.png" width="150" />
+    <img src="@/assets/img/WebBlog.jpg" width="150" />
     <!-- </router-link> -->
     <i @click="openPollup" class="iconfont icon-classification"></i>
   </aside>

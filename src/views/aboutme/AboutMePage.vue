@@ -5,9 +5,9 @@
         <MyElimage :img="Touxiang" />
       </div>
       <h1 class="welcome" id="welcome">你好 旅行者</h1>
-      <h2 class="dida" id="dida">这里是嘀嗒博客站</h2>
+      <h2 class="dida" id="dida">这里是往生堂</h2>
       <div class="profile" id="profile">
-        <p class="label-1" :data-index="0">注册后可以进行发布文章，插图等操作。</p>
+        <p class="label-1" :data-index="0">注册后可以解锁发布文章等其他功能。</p>
         <p class="label-1" :data-index="1">
           后期可以去委托栏查看其他用户发布的任务，完成委托后成果物会发送给对方进行审核，核算后账户会发送对应的特许卷奖励
         </p>
@@ -18,13 +18,13 @@
           当别人接下委托完成并提交后，自己账号会收到成果物来审核，审核通过后特许卷会进行扣除并奖励给接收方
         </p>
         <p class="label-1" :data-index="4">
-          每月月底会进行资金池结算，群商城也会同步上架当期奖励物品，每样商品所需的特许卷不一样，用户可以根据自己手上的特许卷进行兑换
+          每月月底会进行资金池结算，往生堂也会同步上架各种奖励物品，每样商品所需的特许卷不一样，用户可以根据自己手上的特许卷进行兑换
         </p>
         <p class="label-1" :data-index="5">
-          目前还有很多待开发的东西如任务委托板块，天书板块，定时任务板块、AI板块、虚拟直播、量化盘、群AI同步等等
+          目前还有很多待开发的东西如任务委托板块，定时任务系统、AI板块、虚拟直播、量化盘、群AI机器人同步等
         </p>
         <p class="label-1" :data-index="7">
-          有想法建议的可以去<RouterLink to="/messageboard">留言板</RouterLink>给我留言
+          有想法建议的可以去<RouterLink to="/index/messageboard">任务板</RouterLink>给我留言
         </p>
         <p class="label-1" :data-index="9">写于2024.1.6 in 往生堂</p>
       </div>
@@ -32,7 +32,7 @@
         <div class="logo-img">
           <MyElimage :img="Logo" />
         </div>
-        <p class="logo2" :data-index="1">DIDA-blog 嘀嗒博客站</p>
+        <p class="logo2" :data-index="1">DIDA-PUNK 往生堂</p>
       </div>
     </div>
   </div>

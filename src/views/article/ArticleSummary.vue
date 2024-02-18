@@ -5,7 +5,7 @@
       <h2>{{ article.title }}</h2>
       <time><i class="iconfont icon-riqi"></i>发布于{{ article.CreatedAt }}</time>
     </div>
-    <!-- DIDA-BLOG -->
+    <!-- DIDA-PUNK -->
     <div class="author">
       <div class="img">
         <MyElimage :img="article.authorVo?.avatar" :zip="2" />

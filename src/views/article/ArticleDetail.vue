@@ -137,7 +137,7 @@ const toComment = () => {
 }
 useHead({
   // Can be static or computed
-  title: computed(() => `${article.value?.title ? article.value.title : '文章详情'} - DIDA-BLOG`),
+  title: computed(() => `${article.value?.title ? article.value.title : '文章详情'} - DIDA-PUNK`),
   meta: [
     {
       name: `description`,

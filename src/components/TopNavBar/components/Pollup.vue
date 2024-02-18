@@ -49,7 +49,7 @@
         </router-link>
         <router-link @click="closePollup" to="/index/messageboard" active-class="router-active">
           <SvgIcon name="pinglun" class="tw-w-12 tw-h-12 tw-mr-2" />
-          留言板
+          任务板
         </router-link>
         <!-- <router-link @click="closePollup" to="/index/anime" active-class="router-active">
           <SvgIcon name="bofang" class="tw-w-12 tw-h-12 tw-mr-2" />
@@ -62,6 +62,10 @@
         <router-link @click="closePollup" to="/index/picture" active-class="router-active">
           <SvgIcon name="tupian" class="tw-w-12 tw-h-12 tw-mr-2" />
           画廊
+        </router-link>
+        <router-link @click="closePollup" to="/index/market" active-class="router-active">
+          <SvgIcon name="xinxi" class="tw-w-12 tw-h-12 tw-mr-2" />
+          市场
         </router-link>
       </div>
       <div class="button-login" v-if="userinfo.id">

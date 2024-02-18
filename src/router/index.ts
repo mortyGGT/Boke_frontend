@@ -7,7 +7,7 @@ import '@/assets/styles/myNprogress.css'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/index'
   },
   {
     path: '/index',
@@ -165,14 +165,14 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/picture/Picture.vue')
       },
       {
-        path: 'friendslink',
-        name: 'FriendsLink',
+        path: 'market',
+        name: 'Market',
         meta: {
-          title: '友情链接',
-          requireAuth: false,
-          keepAlive: false
+          title: '市场',
+          requireAuth: true,
+          keepAlive: true
         },
-        component: () => import('@/views/friendslink/FriendsLinkPage.vue')
+        component: () => import('@/views/market/index.vue')
       },
       {
         path: 'updatearticle/:id',

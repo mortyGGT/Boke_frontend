@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/-Pinia-yellow?logo=picpay&logoColor=white" />
     <img src="https://img.shields.io/badge/-Axios-008fc7?logo=axios.js&logoColor=white" />
     <img src="https://img.shields.io/badge/-Less-1D365D?logo=less&logoColor=white" alt="Less">
-    <img src="https://img.shields.io/badge/dida-DIDA-BLOG-red" alt="Less">
+    <img src="https://img.shields.io/badge/dida-DIDA-PUNK-red" alt="Less">
     <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/ADKcodeXD/Myblog-Vue3viteTs">
     <img alt="CD" src="https://github.com/ADKcodeXD/Myblog-Vue3viteTs/actions/workflows/push.yml/badge.svg">
 <p>
@@ -156,7 +156,7 @@ TODO
 
 此外 我也对我的博客后端进行了开源 地址如下
 
-**https://github.com/ADKcodeXD/DIDA-BLOG-backend**
+**https://github.com/ADKcodeXD/DIDA-PUNK-backend**
 
 详细更新可以在这里查看:
 

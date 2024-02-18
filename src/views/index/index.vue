@@ -10,10 +10,10 @@
       v-if="userInfo.user.token && userInfo.followBangumiCard"
       @hide="hideFollowBgmCard"
     /> -->
-    <SubTitle> 看看新番 </SubTitle>
+    <!-- <SubTitle> 看看新番 </SubTitle>
     <section class="bangumi">
       <Bangumimini />
-    </section>
+    </section> -->
     <SubTitle> 文章板块 </SubTitle>
     <section class="view-content">
       <aside class="article">

@@ -54,9 +54,9 @@
               <el-dropdown-item>
                 <div
                   class="tw-flex tw-justify-between tw-items-center"
-                  @click="$router.push('/market')"
+                  @click="$router.push('/index/market')"
                 >
-                  <SvgIcon name="yonghu" class="tw-w-8 tw-h-8 tw-mr-2" />
+                  <SvgIcon name="xinxi" class="tw-w-8 tw-h-8 tw-mr-2" />
                   <p>市场</p>
                 </div>
               </el-dropdown-item>
