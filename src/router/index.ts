@@ -170,7 +170,8 @@ const routes: RouteRecordRaw[] = [
         meta: {
           title: '市场',
           requireAuth: true,
-          keepAlive: true
+          keepAlive: true,
+          role: 'wst'
         },
         component: () => import('@/views/market/index.vue')
       },
@@ -221,8 +222,16 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const token = getItem('token')
+  const role = getItem('role')
   if (to.meta.title) {
     document.title = `${to.meta.title}`
+  }
+  if (to.meta.role) {
+    if (to.meta.role != role) {
+      ElMessage.error('没有权限查看')
+      NProgress.start()
+      next({ path: '/login' })
+    }
   }
   if (to.meta.requireAuth) {
     if (token) {

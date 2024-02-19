@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { useStore } from '@/store/main'
-import { removeItem } from '@/utils/storage'
+import { removeItem, setItem } from '@/utils/storage'
 import { ElMessage } from 'element-plus'
 import { currentUserApi } from '@/api/user'
 import { useUserStore } from '@/store/user'
@@ -74,11 +74,15 @@ const getUserInfo = () => {
             introduce: res.introduce || '暂时还没有写哦'
           }
           userStore.setUser(resData)
+          if (res.role == '3') {
+            setItem('role', 'wst')
+          }
         } else {
           ElMessage.error(data.message)
           removeItem('userId')
           removeItem('token')
           removeItem('username')
+          removeItem('role')
         }
       })
       .catch(() => {
@@ -97,6 +101,7 @@ const logout = async () => {
   removeItem('userId')
   removeItem('token')
   removeItem('username')
+  removeItem('role')
   userStore.setUser({
     id: '',
     username: '',
