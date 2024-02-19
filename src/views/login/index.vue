@@ -19,16 +19,11 @@
       </li>
     </ul> -->
     <!-- 背景放的那张图 -->
-    <!-- <div
+    <div
       class="imgbox"
       ref="target"
       :style="{ transform: `rotateX(${-yPos}deg) rotateY(${xPos}deg)` }"
-    > -->
-    <!-- 介绍 -->
-    <!-- <div class="jieshao">
-        <MyElimage :img="Jieshao" />
-      </div> -->
-    <!-- </div> -->
+    ></div>
     <!-- 登录盒子 -->
     <transition
       name="rightout"
@@ -83,7 +78,7 @@
               </div>
               <div class="tw-flex tw-flex-col reg">
                 <p class="register">欢迎注册</p>
-                <p class="shita">Register to WST-BLOG</p>
+                <p class="shita">Register to DIDA-PUNK</p>
               </div>
               <!-- 直接看看 -->
               <div class="goin goin2" @click="$router.push('/index')"></div>
@@ -145,7 +140,6 @@
 import { useLoginMethod, useLoginprop, useRegisterMethod, useRoles } from '@/hooks/login'
 import Logo from '@/assets/img/new-logo.png'
 import LogoIcon from '@/assets/img/logo-icon.png'
-import Jieshao from './imgs/介绍.png'
 import gsap from 'gsap'
 import { CustomEase } from 'gsap/CustomEase'
 import { useAnime } from '@/hooks/Anime'
