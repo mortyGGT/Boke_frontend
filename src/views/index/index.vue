@@ -77,7 +77,7 @@ import { useUserStore } from '@/store/user'
 const articles = ref<ArticleItemInfo[]>([])
 // const bannerList = ref<ArticleItemInfo[]>([])
 const userInfo = useStore()
-const subTitle = Number(useUserStore().userinfo.role) == 3 ? '赛博往生堂' : '滴答博客站'
+const subTitle = Number(useUserStore().userinfo.role) == 3 ? '往生堂' : 'DIDA-PUNK'
 const pageparams: PageParams = {
   page_no: 1,
   page_size: 5
