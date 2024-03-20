@@ -11,3 +11,10 @@ export const getShopList = (pageparams: PageParams) => {
     data: pageparams
   })
 }
+
+export const doOrder = (id: number) => {
+  return request({
+    method: 'post',
+    url: `/api/shop/order/${id}`
+  })
+}

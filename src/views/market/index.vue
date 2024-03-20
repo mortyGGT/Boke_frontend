@@ -21,7 +21,8 @@
         <div class="product-details">
           <h2 class="product-name">{{ product.name }}</h2>
           <p class="product-description">{{ product.desc }}</p>
-          <p class="product-price">价格: ￥{{ product.price }}</p>
+          <p class="product-id">库存:{{ product.amount }}</p>
+          <p class="product-price">价格: ₮ {{ product.price }}</p>
         </div>
       </div>
     </div>
@@ -39,15 +40,15 @@ export default { name: 'shop' }
 </script>
 <script setup lang="ts">
 import notfound from '@/assets/img/404pagenotfound.png'
-import { getShopList } from '@/api/shop'
+import { getShopList, doOrder } from '@/api/shop'
 
 let shopList = ref([])
 let pageInfo = reactive({
   page_no: 1,
   page_size: 10
 })
-// 获取文章
-const getArticle = async () => {
+// 获取商品
+const initShopList = async () => {
   const { data } = await getShopList(pageInfo)
   if (data.status === 200) {
     shopList.value = data.data.page_list
@@ -56,11 +57,17 @@ const getArticle = async () => {
   }
 }
 
-const addToCart = product => {
-  console.log(product)
+const addToCart = async product => {
+  const { data } = await doOrder(product.id)
+  if (data.status === 200) {
+    ElMessage.success(data.message)
+    initShopList()
+  } else {
+    ElMessage.error(data.message)
+  }
 }
 onMounted(() => {
-  getArticle()
+  initShopList()
 })
 //
 </script>
