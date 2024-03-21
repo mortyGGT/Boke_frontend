@@ -11,11 +11,22 @@
     </nav>
 
     <div class="container">
-      <div class="product" v-for="product in shopList" :key="product.id">
+      <div
+        class="product"
+        :class="{ grey: product.status == -1 }"
+        v-for="product in shopList"
+        :key="product.id"
+      >
         <div class="image-container">
           <MyElimage :img="product.img" class="product-image" />
           <div class="image-overlay">
-            <button @click="addToCart(product)" class="add-to-cart-button">兑换</button>
+            <button
+              @click="addToCart(product)"
+              :disabled="product.status == -1"
+              class="add-to-cart-button"
+            >
+              {{ product.status == -1 ? '已下架' : '兑换' }}
+            </button>
           </div>
         </div>
         <div class="product-details">
