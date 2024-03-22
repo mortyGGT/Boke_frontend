@@ -7,9 +7,9 @@
         </div>
         <p class="title">委托栏</p>
       </div>
-      <p class="desc">输入你的昵称 联系方式 作为委托发起人~</p>
+      <p class="desc show-task-add" @click="showTaskAdd = !showTaskAdd">点我发布任务~</p>
     </div>
-    <div class="edit-part">
+    <div v-show="showTaskAdd" class="edit-part">
       <div class="liuyan-info">
         <div class="name">
           <span>任务简称：</span>
@@ -17,7 +17,7 @@
           </ElInput>
         </div>
         <div class="name">
-          <span>您的联系方式：</span>
+          <span>您的联系方式(可选)：</span>
           <ElInput
             class="contact"
             size="large"
@@ -28,11 +28,36 @@
           >
           </ElInput>
         </div>
+        <div class="name">
+          <span>任务最多可接取人数：</span>
+          <ElInputNumber
+            size="large"
+            controls-position="right"
+            :min="0"
+            :max="10"
+            v-model="messageParams.maxWorker"
+            show-word-limit
+            maxlength="20"
+          >
+          </ElInputNumber>
+        </div>
+        <div class="name">
+          <span>截止时间：</span>
+          <ElDatePicker
+            size="large"
+            v-model="messageParams.deadLine"
+            show-word-limit
+            format="YYYY/MM/DD"
+            value-format="YYYY-MM-DD"
+          >
+          </ElDatePicker>
+        </div>
       </div>
       <ElDivider />
       <div class="main-content">
         <div class="msg-avatar"></div>
         <div class="edit-area">
+          <span>任务描述：</span>
           <V3Emoji
             :textArea="true"
             :customSize="customSize"
@@ -46,7 +71,7 @@
         </div>
       </div>
       <div class="button name">
-        <span>奖励特许卷：</span>
+        <span>奖励特许卷(每人)：</span>
         <ElInput class="award-input" size="default" v-model="messageParams.award" maxlength="3">
         </ElInput>
         <ElButton @click="publishMessage" class="buttonself" type="success">发布留言</ElButton>
@@ -68,6 +93,7 @@
         :key="item.id"
         :reply="true"
         :level="false"
+        @published="getMessage"
       />
     </div>
     <AdkEmpty v-else desc="暂时没有任务哦~"></AdkEmpty>
@@ -95,6 +121,7 @@ import { useChangeParams, useMessageApi, useMessageBoardParams } from '@/hooks/u
 import { useEmoji } from '@/hooks/useEmoji'
 import Task from './components/Task.vue'
 
+let showTaskAdd = ref(false)
 const { messageParams, pageparams, messageList, total } = useMessageBoardParams()
 
 const { orderRole, publishMessage, order, changePage, body } = useMessageApi(

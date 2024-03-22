@@ -40,7 +40,7 @@
       </div>
       <div class="secondcomment">
         <!-- 回复区 -->
-        <ElButton class="apply-btn" type="success">接受</ElButton>
+        <ElButton class="apply-btn" @click="apply(commentInfo.id)" type="success">接受</ElButton>
       </div>
     </div>
   </div>
@@ -49,6 +49,7 @@
 <script lang="ts" setup>
 import { PropType } from 'vue'
 import { useUserStore } from '@/store/user'
+import { applyTaskApi } from '@/api/message'
 defineProps({
   commentInfo: {
     type: Object as PropType<TaskItemInfo>,
@@ -76,6 +77,15 @@ defineProps({
 const authorId = useUserStore().userinfo.id
 const emit = defineEmits(['published'])
 const published = () => {
+  emit('published')
+}
+const apply = async id => {
+  const { data } = await applyTaskApi(id)
+  if (data.status == 200) {
+    ElMessage.success('任务接取成功')
+  } else {
+    ElMessage.error(data.message)
+  }
   emit('published')
 }
 </script>

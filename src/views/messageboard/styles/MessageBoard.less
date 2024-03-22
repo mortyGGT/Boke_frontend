@@ -13,7 +13,7 @@
     border-radius: 2.5rem;
     border: @border-line @textColor solid;
     background-color: @bgColor;
-
+    
     .up-info {
       .logo {
         display: flex;
@@ -24,7 +24,11 @@
         .font-ura();
         font-size: 2.5rem;
       }
+      .show-task-add{
+        color: var(--btnColor, #68aeeb);
+        margin: 20px 0;
 
+      }
       .desc {
         .font-normal();
         font-size: @big-text;
@@ -39,7 +43,7 @@
       .liuyan-info {
         display: flex;
         flex-direction: column;
-
+        flex-wrap: wrap;
         .name {
           .flexbox(row);
           padding: @padding-general;
@@ -89,7 +93,7 @@
         width: 100%;
         display: flex;
         justify-content: flex-end;
-        margin-top: @margin-general;
+        margin-top: 3rem;
         .flexbox(row,flex-end);
         span {
           display: flex;
@@ -148,7 +152,7 @@
           }
 
           span {
-            width: unset;
+            width: 180px;
           }
         }
       }

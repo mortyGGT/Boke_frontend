@@ -31,6 +31,8 @@ declare global {
     isInvite: boolean
     award: number
     avatar?: string
+    maxWorker: number
+    deadLine?: string
   }
   interface RegisterParams {
     username: string

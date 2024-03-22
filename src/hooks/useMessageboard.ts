@@ -12,6 +12,8 @@ export const useMessageBoardParams = () => {
     contact: '',
     userId: '',
     award: 0,
+    maxWorker: 0,
+    deadLine: '',
     isInvite: false
   })
   const pageparams = reactive<PageParams>({ page_no: 1, page_size: 5 })
