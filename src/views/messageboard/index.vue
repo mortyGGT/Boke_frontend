@@ -124,7 +124,7 @@ import Task from './components/Task.vue'
 let showTaskAdd = ref(false)
 const { messageParams, pageparams, messageList, total } = useMessageBoardParams()
 
-const { orderRole, publishMessage, order, changePage, body } = useMessageApi(
+const { orderRole, publishMessage, order, changePage, body, getMessage } = useMessageApi(
   messageParams,
   pageparams,
   messageList,
