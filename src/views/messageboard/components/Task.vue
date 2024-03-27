@@ -40,7 +40,26 @@
       </div>
       <div class="secondcomment">
         <!-- 回复区 -->
-        <ElButton class="apply-btn" @click="apply(commentInfo.id)" type="success">接受</ElButton>
+        <div v-if="!commentInfo.isPublisher">
+          <ElButton
+            v-if="commentInfo.alreadyApply"
+            class="apply-btn"
+            :disabled="true"
+            type="default"
+            >已接受</ElButton
+          >
+          <ElButton v-else class="apply-btn" @click="apply(commentInfo.id)" type="success"
+            >接受任务</ElButton
+          >
+        </div>
+
+        <ElButton
+          v-if="commentInfo.isPublisher"
+          class="apply-btn"
+          @click="deleteTask(commentInfo.id)"
+          type="danger"
+          >发布者删除</ElButton
+        >
       </div>
     </div>
   </div>
@@ -49,7 +68,7 @@
 <script lang="ts" setup>
 import { PropType } from 'vue'
 import { useUserStore } from '@/store/user'
-import { applyTaskApi } from '@/api/message'
+import { applyTaskApi, deleteTaskApi } from '@/api/message'
 defineProps({
   commentInfo: {
     type: Object as PropType<TaskItemInfo>,
@@ -83,6 +102,16 @@ const apply = async id => {
   const { data } = await applyTaskApi(id)
   if (data.status == 200) {
     ElMessage.success('任务接取成功')
+  } else {
+    ElMessage.error(data.message)
+  }
+  emit('published')
+}
+
+const deleteTask = async id => {
+  const { data } = await deleteTaskApi(id)
+  if (data.status == 200) {
+    ElMessage.success('任务删除成功')
   } else {
     ElMessage.error(data.message)
   }

@@ -8,6 +8,14 @@ export const addMessageApi = (messageParams: MessageParamsForTask) => {
     data: messageParams
   })
 }
+// 删除任务
+export const deleteTaskApi = (id: number) => {
+  return request({
+    method: 'delete',
+    url: `/api/message/delete/${id}`
+  })
+}
+
 // 获取所有任务
 export const getMessageApi = (pageParams: PageParams) => {
   return request({

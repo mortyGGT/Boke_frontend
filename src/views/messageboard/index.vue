@@ -93,7 +93,7 @@
         :key="item.id"
         :reply="true"
         :level="false"
-        @published="getMessage"
+        @published="getMessage(pageparams)"
       />
     </div>
     <AdkEmpty v-else desc="暂时没有任务哦~"></AdkEmpty>

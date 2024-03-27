@@ -14,9 +14,9 @@
       <el-tab-pane label="我的收藏">
         <MyCollect />
       </el-tab-pane>
-      <!-- <el-tab-pane label="我的点赞">
-        <MyLiked />
-      </el-tab-pane> -->
+      <el-tab-pane label="我的任务">
+        <MyTask />
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -29,7 +29,7 @@ import UserInfo from './components/UserInfo.vue'
 import FormGroup from './components/FormGroup.vue'
 import { useHomeIndex } from '@/hooks/Home'
 import MyCollect from './components/MyCollect.vue'
-// import MyLiked from './components/MyLiked.vue'
+import MyTask from './components/MyTask.vue'
 const { changeInfo, changeBanner, changeAvatar, currentUser, formAllinfo } = useHomeIndex()
 </script>
 

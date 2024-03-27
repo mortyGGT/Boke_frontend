@@ -13,4 +13,6 @@ declare interface TaskItemInfo {
   status: number
   isInvite: boolean
   pannel: number
+  isPublisher: boolean
+  alreadyApply: boolean
 }

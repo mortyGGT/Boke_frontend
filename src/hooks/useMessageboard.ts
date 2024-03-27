@@ -121,7 +121,9 @@ export const useChangeParams = (
         status: item.status,
         isInvite: item.isInvite,
         pannel: item.pannel,
-        user: item.user
+        user: item.user,
+        isPublisher: item.isPublisher,
+        alreadyApply: item.alreadyApply
       }
       return obj
     })
