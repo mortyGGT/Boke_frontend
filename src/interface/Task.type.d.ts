@@ -1,4 +1,5 @@
 declare interface TaskItemInfo {
+  title: string
   content: string
   CreatedAt?: string
   id: string | number
@@ -15,4 +16,6 @@ declare interface TaskItemInfo {
   pannel: number
   isPublisher: boolean
   alreadyApply: boolean
+  maxWorker: number
+  workerIds: string
 }

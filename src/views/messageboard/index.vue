@@ -55,9 +55,11 @@
       </div>
       <ElDivider />
       <div class="main-content">
-        <div class="msg-avatar"></div>
+        <!-- <div class="msg-avatar"></div> -->
+
         <div class="edit-area">
-          <span>任务描述：</span>
+          <span style="font-size: 14px; margin: 20px 0">任务描述：</span>
+
           <V3Emoji
             :textArea="true"
             :customSize="customSize"

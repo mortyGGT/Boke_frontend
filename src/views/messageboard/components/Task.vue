@@ -31,16 +31,22 @@
         <div class="tw-flex tw-flex-col tw-items-end tw-justify-between" style="height: 60px">
           <div class="floor tw-flex-1">{{ floor }}楼</div>
 
-          <span>{{ commentInfo.CreatedAt }}</span>
+          <span>{{ commentInfo.CreatedAt }} </span>
         </div>
       </div>
       <ElDivider />
       <div class="comment-content">
-        <p>{{ commentInfo.content }}</p>
+        <p>{{ commentInfo.title }}: {{ commentInfo.content }}</p>
+        <div>当前状态：{{ handleStatus(commentInfo.status) }}</div>
       </div>
       <div class="secondcomment">
         <!-- 回复区 -->
         <div v-if="!commentInfo.isPublisher">
+          <span style="margin-right: 1rem"
+            >当前接收人：{{ commentInfo.workerIds.split(',').length || 0 }} /
+            {{ commentInfo.maxWorker }}</span
+          >
+
           <ElButton
             v-if="commentInfo.alreadyApply"
             class="apply-btn"
@@ -116,6 +122,24 @@ const deleteTask = async id => {
     ElMessage.error(data.message)
   }
   emit('published')
+}
+
+const handleStatus = n => {
+  let curStatus = ''
+  switch (n) {
+    case 0:
+      curStatus = '未开始'
+      break
+
+    case 1:
+      curStatus = '已开始'
+      break
+
+    default:
+      curStatus = '已结束'
+      break
+  }
+  return curStatus
 }
 </script>
 

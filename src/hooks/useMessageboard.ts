@@ -109,6 +109,7 @@ export const useChangeParams = (
     const newCommentList = ref<TaskItemInfo[]>()
     newCommentList.value = messageList.value.map(item => {
       const obj = {
+        title: item.title,
         content: decodeEmoji(item.content),
         contact: item.contact,
         nickname: item.nickname,
@@ -123,7 +124,9 @@ export const useChangeParams = (
         pannel: item.pannel,
         user: item.user,
         isPublisher: item.isPublisher,
-        alreadyApply: item.alreadyApply
+        alreadyApply: item.alreadyApply,
+        workerIds: item.workerIds,
+        maxWorker: item.maxWorker
       }
       return obj
     })
